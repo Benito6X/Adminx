@@ -244,7 +244,56 @@ canvas{position:fixed;inset:0;z-index:0;pointer-events:none}
 .sp-s{font-size:13px;color:var(--warm);margin-bottom:26px;font-weight:300}
 .db-status{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-family:var(--mono);color:var(--muted);padding:5px 12px;border-radius:100px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);margin-bottom:16px;}
 .db-dot{width:6px;height:6px;border-radius:50%;background:var(--muted);transition:background .3s}
-.db-dot.online{background:#3ECF8E;box-shadow:0 0 6px rgba(62,207,142,.6)}
+.db-dot.warning{
+  position: relative;
+  width: 18px;
+  height: 18px;
+  border-radius: 6px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(212,152,28,.18),
+    rgba(212,152,28,.05)
+  );
+
+  border: 1px solid rgba(212,152,28,.35);
+
+  box-shadow:
+    0 4px 16px rgba(212,152,28,.18),
+    inset 0 0 8px rgba(212,152,28,.12);
+
+  backdrop-filter: blur(6px);
+}
+
+/* Icono simplificado (línea + punto en vez de triángulo pesado) */
+.db-dot.warning::before{
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  transform: translateX(-50%);
+
+  width: 2px;
+  height: 6px;
+  border-radius: 2px;
+
+  background: rgba(212,152,28,.9);
+}
+
+/* Punto inferior */
+.db-dot.warning::after{
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 3px;
+  transform: translateX(-50%);
+
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+
+  background: rgba(212,152,28,.9);
+}
 .db-dot.error{background:var(--err);box-shadow:0 0 6px rgba(200,64,80,.6)}
 .lcard{border-radius:22px;overflow:hidden;margin-bottom:22px;cursor:text;will-change:transform,box-shadow;transition:box-shadow .7s var(--silk),transform .5s var(--spring);box-shadow:0 22px 66px rgba(0,0,0,.58),0 0 0 1px rgba(255,255,255,.045),inset 0 1px 0 rgba(255,255,255,.065);animation:lcPulse 9s ease-in-out infinite;}
 @keyframes lcPulse{0%,100%{box-shadow:0 22px 66px rgba(0,0,0,.58),0 0 0 1px rgba(255,255,255,.045)}50%{box-shadow:0 28px 72px rgba(0,0,0,.63),0 0 0 1px rgba(212,152,28,.2),0 0 60px rgba(212,152,28,.09)}}
@@ -377,70 +426,127 @@ textarea#msg::placeholder{color:rgba(55,40,18,.22);font-style:italic}
 .cm-st{font-size:10.5px;font-family:var(--mono);color:var(--muted);min-height:16px;padding-top:2px;transition:color .3s}
 .cm-st.ok{color:var(--ok)}.cm-st.err{color:var(--err)}
 
-.mtrow{display:flex;gap:9px;margin-bottom:18px}
-.mtb{flex:1;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:16px 8px;text-align:center;cursor:pointer;transition:all .22s var(--out);display:flex;flex-direction:column;align-items:center;gap:8px;font-size:11px;color:var(--warm);touch-action:manipulation;}
-.mtb svg{width:22px;height:22px}
-.mtb.sel,.mtb:active{background:var(--gold-dim);border-color:var(--gold-rim);color:var(--cream);box-shadow:0 0 18px rgba(212,152,28,.12)}
+/* ── RECUERDOS REDISEÑADO ─────────────── */
+.mem-section{margin-bottom:20px}
+.mem-section-label{
+  display:flex;align-items:center;gap:8px;
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;
+  color:var(--muted);text-transform:uppercase;
+  margin-bottom:12px;
+}
+.mem-section-label svg{width:13px;height:13px;opacity:.6;flex-shrink:0}
+.mem-divider{
+  display:flex;align-items:center;gap:14px;
+  color:var(--muted);font-size:10px;font-family:var(--mono);
+  letter-spacing:.12em;text-transform:uppercase;
+  margin:6px 0 22px;
+}
+.mem-divider::before,.mem-divider::after{
+  content:'';flex:1;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.07));
+}
+.mem-divider::after{transform:scaleX(-1)}
 
-/* ══ DROP ZONE — límite 99 MB ══ */
-.dz{border:1.5px dashed rgba(255,255,255,.09);border-radius:22px;padding:clamp(36px,9vw,56px) 20px;text-align:center;cursor:pointer;transition:all .3s var(--out);margin-bottom:18px;animation:dzBreath 5.5s ease-in-out infinite;touch-action:manipulation;}
-@keyframes dzBreath{0%,100%{border-color:rgba(255,255,255,.09)}50%{border-color:rgba(255,255,255,.18)}}
-.dz.over,.dz:active{border-color:rgba(212,152,28,.36);background:rgba(212,152,28,.04);animation:none;box-shadow:0 0 28px rgba(212,152,28,.08)}
-.dz-ic{width:34px;height:34px;color:var(--muted);margin:0 auto 12px;display:block;opacity:.65}
-.dz-t{font-size:15px;color:var(--cream);margin-bottom:5px;font-weight:500}
-.dz-s{font-size:11px;color:var(--muted)}
+/* ══ DROP ZONE — rediseñado ══ */
+.dz2{
+  position:relative;overflow:hidden;
+  border:1.5px dashed rgba(255,255,255,.1);
+  border-radius:20px;
+  padding:36px 24px;
+  text-align:center;cursor:pointer;
+  background:rgba(255,255,255,.018);
+  transition:all .35s var(--out);
+  touch-action:manipulation;
+}
+.dz2::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 0%,rgba(212,152,28,.06),transparent 65%);
+  opacity:0;transition:opacity .35s;pointer-events:none;
+}
+.dz2:active::before,.dz2.over::before{opacity:1}
+.dz2.over,.dz2:active{
+  border-color:rgba(212,152,28,.38);
+  background:rgba(212,152,28,.04);
+  box-shadow:0 0 32px rgba(212,152,28,.1);
+}
+.dz2-icon{
+  width:44px;height:44px;border-radius:14px;
+  background:rgba(212,152,28,.08);border:1px solid rgba(212,152,28,.18);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 14px;color:var(--g2);
+  transition:transform .3s var(--spring),background .3s;
+}
+.dz2:active .dz2-icon{transform:scale(.93);background:rgba(212,152,28,.14)}
+.dz2-icon svg{width:20px;height:20px}
+.dz2-text{font-size:14px;font-weight:500;color:var(--cream);margin-bottom:5px;letter-spacing:-.01em}
+.dz2-sub{font-size:11px;color:var(--muted);font-family:var(--mono);letter-spacing:.04em}
+
+/* ══ INPUT FILE ══ */
 
 /* ══ INPUT FILE — galería directa (sin capture) ══ */
 input#fin{display:none}
 
-/* ══ AUDIO RECORDING BUTTON ══ */
-.audio-rec-wrap{margin-bottom:18px;}
-.audio-rec-btn{
+/* ══ AUDIO RECORDING — rediseñado ══ */
+.voice-btn{
   width:100%;
-  display:flex;align-items:center;justify-content:center;gap:12px;
-  background:rgba(255,255,255,.025);
-  border:1.5px solid rgba(255,255,255,.09);
-  border-radius:20px;
-  padding:20px;
+  display:flex;align-items:center;gap:16px;
+  background:rgba(255,255,255,.022);
+  border:1.5px solid rgba(255,255,255,.08);
+  border-radius:18px;
+  padding:16px 18px;
   cursor:pointer;
   transition:all .3s var(--out);
   touch-action:manipulation;
   color:var(--warm);
-  font-family:var(--sans);font-size:14px;
+  font-family:var(--sans);
+  text-align:left;
   position:relative;overflow:hidden;
 }
-.audio-rec-btn:active,.audio-rec-btn.recording{
-  background:rgba(212,152,28,.07);
-  border-color:rgba(212,152,28,.4);
-  color:var(--g3);
-  box-shadow:0 0 28px rgba(212,152,28,.18);
+.voice-btn::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 0% 50%,rgba(212,152,28,.07),transparent 55%);
+  opacity:0;transition:opacity .3s;pointer-events:none;
 }
-.audio-rec-btn.recording{
-  background:rgba(200,40,40,.08);
-  border-color:rgba(200,40,40,.4);
-  color:#ff7777;
-  box-shadow:0 0 28px rgba(200,40,40,.18);
-  animation:recRing 1s ease-in-out infinite;
+.voice-btn:active::after,.voice-btn.recording::after{opacity:1}
+.voice-btn:active{
+  border-color:rgba(212,152,28,.35);
+  background:rgba(212,152,28,.05);
 }
-@keyframes recRing{0%,100%{box-shadow:0 0 0 0 rgba(200,40,40,0)}50%{box-shadow:0 0 0 8px rgba(200,40,40,.1)}}
-.audio-rec-icon{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(212,152,28,.1);border:1px solid rgba(212,152,28,.2);flex-shrink:0;transition:all .3s;}
-.audio-rec-btn.recording .audio-rec-icon{background:rgba(200,40,40,.15);border-color:rgba(200,40,40,.35);}
-.audio-rec-icon svg{width:20px;height:20px;}
-.audio-rec-info{text-align:left;flex:1}
-.audio-rec-title{font-size:14px;font-weight:500;line-height:1;margin-bottom:4px}
-.audio-rec-sub{font-size:10px;color:var(--muted);font-family:var(--mono);letter-spacing:.04em}
-.audio-rec-btn.recording .audio-rec-sub{color:#ff9999}
-#rec-timer{font-family:var(--mono);font-size:13px;font-weight:500;color:#ff7777;letter-spacing:.1em;display:none;}
-#rec-timer.on{display:block;animation:blink .8s step-start infinite;}
+.voice-btn.recording{
+  background:rgba(200,40,40,.06);
+  border-color:rgba(200,40,40,.36);
+  animation:recRing 1.2s ease-in-out infinite;
+}
+@keyframes recRing{0%,100%{box-shadow:0 0 0 0 rgba(200,40,40,0)}50%{box-shadow:0 0 0 6px rgba(200,40,40,.09)}}
+.voice-btn-icon{
+  width:46px;height:46px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(212,152,28,.09);border:1px solid rgba(212,152,28,.2);
+  flex-shrink:0;transition:all .3s;
+  color:var(--g2);
+}
+.voice-btn.recording .voice-btn-icon{background:rgba(200,40,40,.12);border-color:rgba(200,40,40,.32);color:#ff7777}
+.voice-btn-icon svg{width:20px;height:20px}
+.voice-btn-body{flex:1}
+.voice-btn-title{font-size:14px;font-weight:500;color:var(--cream);line-height:1;margin-bottom:5px;transition:color .3s}
+.voice-btn.recording .voice-btn-title{color:#ff9999}
+.voice-btn-hint{font-size:10px;color:var(--muted);font-family:var(--mono);letter-spacing:.04em;transition:color .3s}
+.voice-btn.recording .voice-btn-hint{color:rgba(255,130,130,.6)}
+#rec-timer{font-family:var(--mono);font-size:13px;font-weight:500;color:#ff7777;letter-spacing:.1em;flex-shrink:0;display:none}
+#rec-timer.on{display:block;animation:blink .9s step-start infinite}
 
 /* Audio previews */
-.audio-prev-list{display:flex;flex-direction:column;gap:9px;margin-top:14px;}
+
+/* Audio previews */
+.audio-prev-list{display:flex;flex-direction:column;gap:9px;margin-top:12px}
 .audio-prev-item{
   display:flex;align-items:center;gap:12px;
-  background:rgba(212,152,28,.05);
-  border:1px solid rgba(212,152,28,.2);
-  border-radius:16px;padding:12px 16px;
+  background:rgba(212,152,28,.04);
+  border:1px solid rgba(212,152,28,.16);
+  border-radius:14px;padding:10px 14px;
+  transition:border-color .22s;
 }
+.audio-prev-item:hover{border-color:rgba(212,152,28,.28)}
 .audio-play{width:36px;height:36px;border-radius:50%;background:var(--g2);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:rgba(10,5,0,.9);flex-shrink:0;transition:transform .2s,box-shadow .2s;}
 .audio-play:active{transform:scale(.93)}
 .audio-play svg{width:14px;height:14px}
@@ -454,12 +560,29 @@ input#fin{display:none}
 .audio-rm:active{color:var(--err)}
 .audio-rm svg{width:14px;height:14px}
 
-.mprev{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
-.mthumb{position:relative;width:80px;height:80px;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.07);animation:slideUp .3s var(--out) forwards;box-shadow:0 8px 20px rgba(0,0,0,.35);}
-.mthumb img{width:100%;height:100%;object-fit:cover}
-.mthumb .rm{position:absolute;top:5px;right:5px;background:rgba(0,0,0,.74);backdrop-filter:blur(6px);border:none;border-radius:50%;width:22px;height:22px;cursor:pointer;color:#fff;display:flex;align-items:center;justify-content:center;touch-action:manipulation;}
-.mthumb .rm:active{background:rgba(180,30,30,.9)}
-.mthumb .rm svg{width:9px;height:9px}
+/* ── MEDIA PREVIEW — rediseñado ── */
+.mprev{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+.mthumb{
+  position:relative;aspect-ratio:1;
+  border-radius:14px;overflow:hidden;
+  border:1px solid rgba(255,255,255,.07);
+  animation:slideUp .32s var(--out) forwards;
+  box-shadow:0 8px 24px rgba(0,0,0,.38);
+  background:rgba(255,255,255,.03);
+}
+.mthumb img{width:100%;height:100%;object-fit:cover;display:block}
+.mthumb .rm{
+  position:absolute;top:6px;right:6px;
+  background:rgba(4,4,20,.8);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  border:none;border-radius:50%;
+  width:24px;height:24px;cursor:pointer;
+  color:rgba(255,255,255,.75);
+  display:flex;align-items:center;justify-content:center;
+  touch-action:manipulation;transition:all .2s;
+}
+.mthumb .rm:active{background:rgba(180,30,30,.85);color:#fff;transform:scale(.9)}
+.mthumb .rm svg{width:10px;height:10px}
 .dmicro{font-family:var(--serif);font-size:clamp(17px,5vw,22px);font-style:italic;color:var(--warm);margin-bottom:22px;min-height:28px;transition:opacity .4s;font-weight:200;}
 .presets{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
 .prst{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:100px;padding:9px 18px;font-size:12px;color:var(--warm);cursor:pointer;font-family:var(--sans);transition:all .22s;touch-action:manipulation;}
@@ -878,52 +1001,50 @@ input:focus{border-color:rgba(212,152,28,.32);box-shadow:0 0 0 3px rgba(212,152,
     <div class="snav"><span></span><button class="bnx" onclick="nx()">Continuar<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
   </div>
 
-  <!-- STEP 1: MEDIA -->
+  <!-- STEP 1: MEDIA — REDISEÑADO -->
   <div class="sp" id="sp1">
     <p class="sp-t">Añade recuerdos</p>
-    <p class="sp-s">Imágenes, audio y archivos que viajarán contigo al futuro. <span style="color:var(--muted)">Opcional.</span></p>
+    <p class="sp-s">Fotos, videos o una nota de voz que viajarán al futuro. <span style="color:var(--muted)">Todo es opcional.</span></p>
 
-    <!-- TIPO DE MEDIA -->
-    <div class="mtrow">
-      <div class="mtb sel" onclick="selMT(this,'image/*')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>Imágenes
+    <!-- FOTOS Y VIDEO -->
+    <div class="mem-section">
+      <div class="mem-section-label">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        Fotos y video
       </div>
-      <div class="mtb" onclick="selMT(this,'video/*')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>Video
+      <div class="dz2" id="dz" onclick="document.getElementById('fin').click()" ondragover="dzOv(event)" ondrop="dzDr(event)" ondragleave="dzLv()">
+        <div class="dz2-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        </div>
+        <div class="dz2-text">Toca para añadir desde la galería</div>
+        <div class="dz2-sub">JPG · PNG · GIF · MP4 · Máx 99 MB</div>
       </div>
-      <div class="mtb" onclick="selMT(this,'audio/*')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8"/></svg>Audio
-      </div>
+      <input type="file" id="fin" multiple accept="image/*,video/*,audio/*" onchange="hFiles(this.files)">
+      <div class="mprev" id="mp"></div>
     </div>
 
-    <!-- NOTA DE VOZ — un solo clic para grabar -->
-    <div class="audio-rec-wrap">
-      <button class="audio-rec-btn" id="audioRecBtn" onclick="toggleRecording()">
-        <div class="audio-rec-icon">
-          <svg id="micSvg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <rect x="9" y="2" width="6" height="12" rx="3"/>
-            <path d="M5 10a7 7 0 0 0 14 0M12 19v3M9 22h6"/>
-          </svg>
+    <!-- DIVIDER -->
+    <div class="mem-divider"><span>o añade</span></div>
+
+    <!-- NOTA DE VOZ -->
+    <div class="mem-section">
+      <div class="mem-section-label">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>
+        Nota de voz
+      </div>
+      <button class="voice-btn" id="audioRecBtn" onclick="toggleRecording()">
+        <div class="voice-btn-icon">
+          <svg id="micSvg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0M12 19v3M9 22h6"/></svg>
         </div>
-        <div class="audio-rec-info">
-          <div class="audio-rec-title" id="recTitle">Grabar nota de voz</div>
-          <div class="audio-rec-sub" id="recSub">Un clic para iniciar · Un clic para enviar</div>
+        <div class="voice-btn-body">
+          <div class="voice-btn-title" id="recTitle">Grabar nota de voz</div>
+          <div class="voice-btn-hint" id="recSub">Un toque para iniciar · Un toque para terminar</div>
         </div>
-        <span id="rec-timer"></span>
+        <span class="voice-timer" id="rec-timer"></span>
       </button>
       <div class="audio-prev-list" id="audioPrevList"></div>
     </div>
 
-    <!-- DROP ZONE IMÁGENES — abre galería directamente -->
-    <div class="dz" id="dz" onclick="document.getElementById('fin').click()" ondragover="dzOv(event)" ondrop="dzDr(event)" ondragleave="dzLv()">
-      <svg class="dz-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-      <div class="dz-t">Toca para añadir desde galería</div>
-      <!-- LÍMITE AUMENTADO A 99 MB -->
-      <div class="dz-s">JPG · PNG · GIF · MP4 · Máx 99 MB</div>
-    </div>
-    <!-- Sin atributo capture — abre la galería del dispositivo directamente -->
-    <input type="file" id="fin" multiple accept="image/*,video/*,audio/*" onchange="hFiles(this.files)">
-    <div class="mprev" id="mp"></div>
     <div class="snav">
       <button class="bbk" onclick="pv()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Atrás</button>
       <button class="bnx" onclick="nx()">Continuar<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
@@ -1075,6 +1196,67 @@ function getSBConfig(){ return { url: _SB_URL, key: _SB_KEY }; }
 function saveSBConfig(){}
 
 // ═══════════════════════════════
+// DISCORD WEBHOOK
+// ═══════════════════════════════
+const DISCORD_WEBHOOK = 'https://discord.com/api/webhooks/1493337016648339666/NPsrLLkux_MCWchV2LtBgO_iXTnipJnsTK9N9qoPc0zvFaeF2wX4Nq7veHvHAz2_BT8M';
+
+async function sendToDiscord(type, token, data){
+  try{
+    var now = new Date();
+    var shareURL = location.href.split('#')[0] + '#' + token;
+    var destMap = {self:'Para sí mismo',other:'Para otra persona',link:'Solo con link'};
+    var privMap = {pub:'Público (link)',priv:'Privado (código)'};
+
+    var embed = {};
+
+    if(type === 'created'){
+      var openDate = data.openDate ? new Date(data.openDate).toLocaleDateString('es-ES',{day:'numeric',month:'long',year:'numeric'}) : '—';
+      var msgPreview = (data.msg||'').slice(0,200) + ((data.msg||'').length > 200 ? '…' : '');
+      var mediaCount = (data.imgs||[]).length;
+      embed = {
+        title: '✦ Nueva cápsula sellada',
+        color: 0xD4981C,
+        fields: [
+          {name:'🔑 Token',       value:'`'+token+'`',              inline:true},
+          {name:'📅 Se abre',     value:openDate,                   inline:true},
+          {name:'🎯 Destino',     value:destMap[data.dest]||data.dest, inline:true},
+          {name:'🔒 Privacidad', value:privMap[data.priv]||data.priv, inline:true},
+          {name:'🖼️ Multimedia', value:mediaCount ? mediaCount+' archivo(s)' : 'Ninguno', inline:true},
+          {name:'📆 Días hasta apertura', value:String(data.days||365), inline:true},
+          {name:'📝 Mensaje',     value: msgPreview || '_(vacío)_', inline:false},
+          {name:'🔗 Link',        value:shareURL,                   inline:false}
+        ],
+        footer:{text:'CápsulaDe · Creada el '+now.toLocaleString('es-ES')},
+        thumbnail:{url:'https://img.icons8.com/emoji/96/hourglass-not-done-emoji.png'}
+      };
+      if(data.rn){embed.fields.push({name:'👤 Destinatario',value:data.rn+(data.re?' · '+data.re:''),inline:false});}
+    }
+
+    if(type === 'opened'){
+      var createdAt = data.createdAt ? new Date(data.createdAt).toLocaleDateString('es-ES',{day:'numeric',month:'long',year:'numeric'}) : '—';
+      embed = {
+        title: '📬 Cápsula abierta',
+        color: 0x27B872,
+        fields: [
+          {name:'🔑 Token',       value:'`'+token+'`',              inline:true},
+          {name:'📅 Creada el',   value:createdAt,                  inline:true},
+          {name:'🎯 Destino',     value:destMap[data.dest]||data.dest, inline:true},
+          {name:'🔗 Link',        value:shareURL,                   inline:false}
+        ],
+        footer:{text:'CápsulaDe · Abierta el '+now.toLocaleString('es-ES')},
+        thumbnail:{url:'https://img.icons8.com/emoji/96/open-mailbox-with-raised-flag.png'}
+      };
+    }
+
+    await fetch(DISCORD_WEBHOOK, {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({username:'CápsulaDe', avatar_url:'https://img.icons8.com/emoji/96/hourglass-not-done-emoji.png', embeds:[embed]})
+    });
+  }catch(e){console.warn('Discord notify error:',e);}
+}
+
+// ═══════════════════════════════
 // DB OPERATIONS
 // ═══════════════════════════════
 async function dbSave(token,data){
@@ -1087,6 +1269,7 @@ async function dbSave(token,data){
         priv:data.priv||'pub',code:data.code||'',created_at:data.createdAt})});
     if(!res.ok){var e=await res.text();console.error('DB save:',e);}
   }catch(e){console.error('DB:',e);}
+  sendToDiscord('created', token, data);
   lsSave(token,data);return true;
 }
 async function dbGet(token){
@@ -1098,8 +1281,12 @@ async function dbGet(token){
     var rows=await res.json();
     if(!rows||!rows.length)return lsGet(token);
     var r=rows[0];
-    return{msg:r.msg,imgs:JSON.parse(r.imgs||'[]'),days:r.days,openDate:r.open_date,
+    var capsule={msg:r.msg,imgs:JSON.parse(r.imgs||'[]'),days:r.days,openDate:r.open_date,
       dest:r.dest,rn:r.rn,re:r.re,priv:r.priv,code:r.code,createdAt:r.created_at};
+    // Solo notifica apertura si ya es hora de abrirla
+    var now=new Date();
+    if(!r.open_date||now>=new Date(r.open_date)){sendToDiscord('opened',token,capsule);}
+    return capsule;
   }catch(e){return lsGet(token);}
 }
 async function dbCount(){
@@ -1128,7 +1315,7 @@ function getKey(){return localStorage.getItem(CMK)||_CL_KEY;}
 
 function updateDBStatus(online){
   var dot=document.getElementById('db-dot'),lbl=document.getElementById('db-lbl');if(!dot)return;
-  if(online){dot.className='db-dot online';lbl.textContent='Supabase conectado';}
+  if(online){dot.className='db-dot warning';lbl.textContent='Versión en desarrollo';}
   else{dot.className='db-dot error';lbl.textContent='Verificando…';}
 }
 (function(){
