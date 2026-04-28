@@ -67,6 +67,17 @@ Objetivo: vender servicios digitales sin parecer una plantilla genérica.
   --display:Sora,Inter,ui-sans-serif,system-ui,sans-serif;
   --ease:cubic-bezier(.19,1,.22,1);
   --ease-2:cubic-bezier(.2,.8,.2,1);
+
+  /* ZONAS DE IMAGENES: sube tus archivos dentro de /img con estos nombres.
+     Si un archivo no existe, el diseño mantiene sus gradientes premium como respaldo. */
+  --img-logo:url("img/tropix-logo.png");
+  --img-hero:url("img/tropix-hero-dopamina.webp");
+  --img-service-logo:url("img/servicio-logo.webp");
+  --img-service-flyers:url("img/servicio-flyers.webp");
+  --img-service-web:url("img/servicio-web.webp");
+  --img-service-catalogo:url("img/servicio-catalogo.webp");
+  --img-service-plantillas:url("img/servicio-plantillas.webp");
+  --img-service-pack:url("img/servicio-pack.webp");
 }
 [data-theme="light"]{
   --bg-0:#f4fbf6;
@@ -326,6 +337,19 @@ svg.icon{
     inset 0 0 0 1px rgba(255,255,255,.38),
     0 18px 52px rgba(42,245,170,.25);
   overflow:hidden;
+}
+
+.brand__logo-img{
+  position:absolute;
+  inset:7px;
+  z-index:4;
+  width:calc(100% - 14px);
+  height:calc(100% - 14px);
+  object-fit:contain;
+  filter:drop-shadow(0 10px 18px rgba(0,0,0,.22));
+}
+.brand__logo-img + .brand__glyph{
+  opacity:.18;
 }
 .brand__mark::before{
   content:"";
@@ -675,9 +699,13 @@ svg.icon{
   border:1px solid var(--line-1);
   border-radius:48px;
   background:
+    linear-gradient(145deg,rgba(3,8,7,.35),rgba(3,8,7,.76)),
+    var(--img-hero),
     linear-gradient(145deg,rgba(255,255,255,.14),rgba(255,255,255,.045)),
     radial-gradient(circle at 20% 18%,rgba(42,245,170,.18),transparent 36%),
     radial-gradient(circle at 82% 24%,rgba(54,231,255,.16),transparent 32%);
+  background-size:cover,cover,auto,auto,auto;
+  background-position:center,center,center,center,center;
   box-shadow:var(--shadow-deep);
   backdrop-filter:blur(18px);
   overflow:hidden;
@@ -951,6 +979,22 @@ svg.icon{
   font-weight:950;
   letter-spacing:-.08em;
 }
+.mini-mark img{
+  position:absolute;
+  inset:8px;
+  width:calc(100% - 16px);
+  height:calc(100% - 16px);
+  object-fit:contain;
+  z-index:2;
+}
+.mini-mark span{
+  position:relative;
+  z-index:1;
+}
+.mini-mark img + span{
+  opacity:.16;
+}
+
 .price-pop{
   margin-bottom:6px;
   font-family:var(--display);
@@ -2039,6 +2083,436 @@ svg.icon{
   opacity:1;
   transform:none;
 }
+
+/* ============================================================
+   TIENDA INTERACTIVA + BRIEF PREMIUM
+   Reemplazo de la sección genérica de servicios y formulario.
+   ============================================================ */
+.shop-toolbar{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:-10px 0 24px;
+}
+.shop-filter{
+  min-height:44px;
+  padding:0 16px;
+  border:1px solid var(--line-1);
+  border-radius:var(--radius-round);
+  color:var(--text-1);
+  background:rgba(255,255,255,.055);
+  font-weight:950;
+  letter-spacing:-.02em;
+  transition:transform .25s var(--ease),background .25s var(--ease),color .25s var(--ease),border-color .25s var(--ease);
+}
+.shop-filter:hover,
+.shop-filter.is-active{
+  color:var(--ink);
+  background:linear-gradient(135deg,var(--green),var(--aqua));
+  border-color:transparent;
+  transform:translateY(-2px);
+  box-shadow:0 14px 44px rgba(42,245,170,.18);
+}
+.shop-layout{
+  display:grid;
+  grid-template-columns:320px 1fr;
+  gap:18px;
+  align-items:start;
+}
+.shop-basket{
+  position:sticky;
+  top:118px;
+  padding:24px;
+  background:
+    radial-gradient(circle at 18% 0,rgba(42,245,170,.18),transparent 38%),
+    linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.045));
+}
+.shop-basket__top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding-bottom:16px;
+  border-bottom:1px solid var(--line-1);
+}
+.mini-kicker{
+  color:var(--green);
+  font-size:.74rem;
+  font-weight:950;
+  text-transform:uppercase;
+  letter-spacing:.14em;
+}
+.shop-basket h3,
+.quote-step__head h3,
+.quote-summary-live h3{
+  margin:18px 0 10px;
+  font-family:var(--display);
+  letter-spacing:-.055em;
+}
+.shop-basket p,
+.shop-basket small,
+.quote-step__head p,
+.quote-summary-live p{
+  color:var(--text-1);
+  line-height:1.65;
+}
+.basket-items{
+  display:grid;
+  gap:10px;
+  margin:18px 0;
+}
+.basket-empty{
+  padding:15px;
+  border:1px dashed var(--line-2);
+  border-radius:18px;
+  color:var(--text-2);
+  background:rgba(255,255,255,.04);
+}
+.basket-row{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:12px;
+  align-items:center;
+  padding:12px;
+  border:1px solid var(--line-1);
+  border-radius:18px;
+  background:rgba(255,255,255,.065);
+}
+.basket-row strong{
+  display:block;
+  margin-bottom:4px;
+}
+.basket-row span{
+  color:var(--text-2);
+  font-size:.82rem;
+}
+.basket-remove{
+  width:34px;
+  height:34px;
+  border-radius:12px;
+  color:var(--text-0);
+  background:rgba(255,255,255,.08);
+  border:1px solid var(--line-1);
+}
+.basket-total{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:14px;
+  margin:14px 0 18px;
+  padding-top:16px;
+  border-top:1px solid var(--line-1);
+}
+.basket-total span{
+  color:var(--text-2);
+  font-size:.88rem;
+}
+.basket-total strong{
+  font-family:var(--display);
+  font-size:2rem;
+  letter-spacing:-.08em;
+}
+.shop-products{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
+.product-card{
+  min-height:520px;
+  display:flex;
+  flex-direction:column;
+  transition:opacity .25s var(--ease),transform .35s var(--ease),border-color .25s var(--ease);
+}
+.product-card.is-hidden{
+  display:none;
+}
+.product-card--featured{
+  border-color:rgba(42,245,170,.36);
+  box-shadow:0 28px 90px rgba(42,245,170,.13),var(--shadow-soft);
+}
+.product-ribbon{
+  position:absolute;
+  z-index:4;
+  top:16px;
+  right:16px;
+  padding:7px 10px;
+  border-radius:var(--radius-round);
+  color:var(--green);
+  background:rgba(42,245,170,.12);
+  border:1px solid rgba(42,245,170,.26);
+  font-size:.72rem;
+  font-weight:950;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+.product-media{
+  position:relative;
+  min-height:190px;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  border-bottom:1px solid var(--line-1);
+  background:
+    radial-gradient(circle at 30% 20%,rgba(255,255,255,.18),transparent 20%),
+    linear-gradient(135deg,rgba(255,255,255,.1),rgba(255,255,255,.035));
+}
+
+.product-media::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  background-image:var(--product-img);
+  background-size:cover;
+  background-position:center;
+  opacity:.68;
+  filter:saturate(1.14) contrast(1.06);
+  transform:scale(1.02);
+}
+.product-media::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:
+    linear-gradient(180deg,rgba(3,8,7,.05),rgba(3,8,7,.58)),
+    radial-gradient(circle at 50% 26%,rgba(255,255,255,.18),transparent 24%);
+}
+.product-media .icon{
+  position:relative;
+  z-index:2;
+  width:82px;
+  height:82px;
+  color:var(--text-0);
+  filter:drop-shadow(0 20px 36px rgba(0,0,0,.32));
+}
+.product-media--brand{background:radial-gradient(circle at 30% 25%,rgba(42,245,170,.34),transparent 32%),radial-gradient(circle at 80% 58%,rgba(255,211,106,.22),transparent 34%),rgba(255,255,255,.055);}
+.product-media--social{background:radial-gradient(circle at 30% 25%,rgba(255,106,122,.28),transparent 32%),radial-gradient(circle at 80% 58%,rgba(154,115,255,.26),transparent 34%),rgba(255,255,255,.055);}
+.product-media--web{background:radial-gradient(circle at 30% 25%,rgba(54,231,255,.32),transparent 32%),radial-gradient(circle at 80% 58%,rgba(42,245,170,.22),transparent 34%),rgba(255,255,255,.055);}
+.product-media--catalog{background:radial-gradient(circle at 30% 25%,rgba(255,211,106,.28),transparent 32%),radial-gradient(circle at 80% 58%,rgba(54,231,255,.22),transparent 34%),rgba(255,255,255,.055);}
+.product-media--kit{background:radial-gradient(circle at 30% 25%,rgba(154,115,255,.3),transparent 32%),radial-gradient(circle at 80% 58%,rgba(255,106,122,.2),transparent 34%),rgba(255,255,255,.055);}
+.product-media--pack{background:radial-gradient(circle at 30% 25%,rgba(42,245,170,.28),transparent 32%),radial-gradient(circle at 80% 58%,rgba(54,231,255,.25),transparent 34%),radial-gradient(circle at 48% 100%,rgba(255,211,106,.15),transparent 30%),rgba(255,255,255,.055);}
+.product-sku{
+  position:absolute;
+  left:16px;
+  top:16px;
+  z-index:3;
+  padding:7px 10px;
+  border-radius:var(--radius-round);
+  color:var(--text-1);
+  background:rgba(0,0,0,.23);
+  border:1px solid rgba(255,255,255,.1);
+  font-size:.72rem;
+  font-weight:950;
+}
+.product-glow{
+  position:absolute;
+  width:230px;
+  height:230px;
+  border-radius:50%;
+  background:rgba(255,255,255,.08);
+  filter:blur(22px);
+  transform:translate(80px,70px);
+}
+.product-body{
+  display:flex;
+  flex:1;
+  flex-direction:column;
+  padding:22px;
+}
+.product-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  margin-bottom:16px;
+}
+.product-head strong{
+  white-space:nowrap;
+}
+.product-card h3{
+  margin:0 0 10px;
+  font-family:var(--display);
+  font-size:1.42rem;
+  letter-spacing:-.055em;
+}
+.product-card p{
+  color:var(--text-1);
+  line-height:1.65;
+}
+.product-specs{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:12px 0 18px;
+}
+.product-specs span{
+  padding:7px 9px;
+  border:1px solid var(--line-1);
+  border-radius:var(--radius-round);
+  color:var(--text-2);
+  background:rgba(255,255,255,.045);
+  font-size:.78rem;
+  font-weight:850;
+}
+.product-actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:auto;
+}
+.quote-panel--premium{
+  grid-template-columns:1.12fr .88fr;
+}
+.quote-card--premium{
+  padding:0;
+}
+.quote-progress{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:0;
+  border-bottom:1px solid var(--line-1);
+  background:rgba(255,255,255,.045);
+}
+.quote-progress span{
+  min-height:58px;
+  display:grid;
+  place-items:center;
+  color:var(--text-2);
+  border-right:1px solid var(--line-1);
+  font-size:.78rem;
+  font-weight:950;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+.quote-progress span:last-child{
+  border-right:0;
+}
+.quote-progress span.is-active{
+  color:var(--green);
+  background:rgba(42,245,170,.08);
+}
+.quote-step{
+  padding:25px;
+  border-bottom:1px solid var(--line-1);
+}
+.quote-step__head{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  margin-bottom:18px;
+}
+.quote-step__head>span{
+  width:42px;
+  height:42px;
+  display:grid;
+  place-items:center;
+  flex:0 0 auto;
+  border-radius:15px;
+  color:var(--ink);
+  background:linear-gradient(135deg,var(--green),var(--aqua));
+  font-weight:950;
+}
+.quote-step__head h3{
+  margin:0 0 6px;
+  font-size:1.12rem;
+}
+.quote-step__head p{
+  margin:0;
+  font-size:.92rem;
+}
+.brief-choice{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-bottom:16px;
+}
+.brief-choice label{
+  cursor:pointer;
+}
+.brief-choice input{
+  position:absolute;
+  opacity:0;
+  pointer-events:none;
+}
+.brief-choice span{
+  min-height:48px;
+  display:grid;
+  place-items:center;
+  padding:8px 10px;
+  border:1px solid var(--line-1);
+  border-radius:16px;
+  color:var(--text-1);
+  background:rgba(255,255,255,.055);
+  font-size:.86rem;
+  font-weight:900;
+  text-align:center;
+  transition:.25s var(--ease);
+}
+.brief-choice input:checked+span{
+  color:var(--ink);
+  border-color:transparent;
+  background:linear-gradient(135deg,var(--green),var(--aqua));
+  box-shadow:0 14px 42px rgba(42,245,170,.16);
+}
+.selected-preview{
+  margin:20px 25px 0;
+  padding:16px;
+  border:1px dashed rgba(42,245,170,.28);
+  border-radius:20px;
+  background:rgba(42,245,170,.07);
+}
+.selected-preview strong{
+  display:block;
+  margin-bottom:6px;
+}
+.selected-preview span{
+  color:var(--text-1);
+  line-height:1.5;
+}
+.quote-card--premium .form-actions,
+.quote-card--premium .quote-result{
+  margin-left:25px;
+  margin-right:25px;
+}
+.quote-card--premium .form-actions{
+  padding-bottom:25px;
+}
+.quote-summary-live{
+  padding:26px;
+  background:
+    radial-gradient(circle at 22% 0,rgba(54,231,255,.17),transparent 35%),
+    linear-gradient(145deg,rgba(255,255,255,.11),rgba(255,255,255,.045));
+}
+.quote-mini-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-top:20px;
+}
+.quote-mini-grid div{
+  min-height:96px;
+  padding:14px;
+  border:1px solid var(--line-1);
+  border-radius:20px;
+  background:rgba(255,255,255,.055);
+}
+.quote-mini-grid strong{
+  display:block;
+  margin-bottom:8px;
+  color:var(--green);
+  font-family:var(--display);
+  font-size:1.3rem;
+}
+.quote-mini-grid span{
+  color:var(--text-1);
+  font-size:.84rem;
+  line-height:1.35;
+}
+.payment-grid--premium .payment-card{
+  background:linear-gradient(145deg,rgba(255,255,255,.085),rgba(255,255,255,.04));
+}
+
 @media(max-width:1120px){
   .nav__links{
     display:none;
@@ -2285,7 +2759,72 @@ svg.icon{
 .u-bg-glass-strong{background:var(--surface-2);}
 .u-bg-line{background:var(--line-1);}
 .u-bg-green-line{background:rgba(42,245,170,.3);}
-  </style>
+  
+@media(max-width:1120px){
+  .shop-layout,
+  .quote-panel--premium{
+    grid-template-columns:1fr;
+  }
+  .shop-basket{
+    position:relative;
+    top:auto;
+  }
+}
+@media(max-width:760px){
+  .shop-toolbar{
+    overflow:auto;
+    flex-wrap:nowrap;
+    padding-bottom:4px;
+    scrollbar-width:none;
+  }
+  .shop-toolbar::-webkit-scrollbar{
+    display:none;
+  }
+  .shop-filter{
+    flex:0 0 auto;
+  }
+  .shop-products{
+    grid-template-columns:1fr;
+  }
+  .product-card{
+    min-height:auto;
+  }
+  .product-media{
+    min-height:165px;
+  }
+  .product-actions{
+    grid-template-columns:1fr;
+  }
+  .quote-progress{
+    grid-template-columns:1fr;
+  }
+  .quote-progress span{
+    min-height:44px;
+    border-right:0;
+    border-bottom:1px solid var(--line-1);
+  }
+  .quote-progress span:last-child{
+    border-bottom:0;
+  }
+  .quote-step{
+    padding:20px;
+  }
+  .quote-step__head{
+    display:grid;
+  }
+  .brief-choice,
+  .quote-mini-grid{
+    grid-template-columns:1fr;
+  }
+  .selected-preview,
+  .quote-card--premium .form-actions,
+  .quote-card--premium .quote-result{
+    margin-left:20px;
+    margin-right:20px;
+  }
+}
+
+</style>
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -2387,6 +2926,7 @@ svg.icon{
       <div class="container nav__shell">
         <a class="brand" href="#inicio" aria-label="Trópix Studio inicio">
           <span class="brand__mark" aria-hidden="true">
+            <img class="brand__logo-img" src="img/tropix-logo.png" alt="" onerror="this.remove()">
             <svg class="brand__glyph" viewBox="0 0 64 64">
               <path d="M14 18h37l-7 9H33v24H22V27H7l7-9Z" fill="currentColor"/>
               <path d="M35 28h16L39 51H26l9-23Z" fill="rgba(3,17,13,.72)"/>
@@ -2426,6 +2966,19 @@ svg.icon{
       <a href="#cotizar">Cotizar<span>07</span></a>
     </nav>
     <main id="contenido">
+      <!--
+      GUIA RAPIDA PARA LA CARPETA /img
+      Sube tus imagenes con estos nombres para activar las zonas visuales sin tocar codigo:
+      - img/tropix-logo.png
+      - img/tropix-hero-dopamina.webp
+      - img/servicio-logo.webp
+      - img/servicio-flyers.webp
+      - img/servicio-web.webp
+      - img/servicio-catalogo.webp
+      - img/servicio-plantillas.webp
+      - img/servicio-pack.webp
+      Recomendado: formato .webp, 1600px de ancho para hero y 900x620 para tarjetas.
+      -->
       <section class="hero" id="inicio">
         <div class="container hero__grid">
           <div class="hero__copy reveal-left">
@@ -2457,7 +3010,7 @@ svg.icon{
                 <span class="proof-avatar">T</span>
                 <span class="proof-avatar">+</span>
               </div>
-              <span>Hecho para barberías, restaurantes, talleres, tiendas, salones y marcas personales.</span>
+              <span>Hecho para barberías, restaurantes, boutiques, salones, tiendas fitness y marcas personales.</span>
             </div>
           </div>
           <div class="hero__visual reveal-right" aria-label="Vista previa visual de Trópix Studio">
@@ -2485,7 +3038,7 @@ svg.icon{
               </span>
             </div>
             <article class="float-card card-identity">
-              <div class="mini-mark">TX</div>
+              <div class="mini-mark"><img src="img/tropix-logo.png" alt="" onerror="this.remove()"><span>TX</span></div>
               <h4>Identidad con carácter</h4>
               <p>Colores, logo, piezas y sistema visual para que todo se sienta conectado.</p>
             </article>
@@ -2618,96 +3171,149 @@ svg.icon{
         <div class="container">
           <div class="section__head reveal">
             <div>
-              <div class="kicker">Servicios productizados</div>
-              <h2 class="section__title">No vendes diseños sueltos. Vendes presencia visual que da confianza.</h2>
+              <div class="kicker">Servicios en modo tienda</div>
+              <h2 class="section__title">Compra servicios creativos como una tienda premium: visual, clara y adictiva.</h2>
             </div>
-            <p class="section__copy">Cada servicio tiene resultado, precio desde, tiempo estimado y CTA directo. Así se siente como tienda, no como portafolio vacío.</p>
+            <p class="section__copy">Filtra, compara, agrega al pedido y mira el total estimado. Cada card tiene zona visual preparada para imágenes en /img, para que el usuario sienta dopamina sin perder organización.</p>
           </div>
-          <div class="grid-3">
-            <article class="card service-card reveal">
-              <div class="service-card__top">
-                <div class="service-icon">
+
+          <div class="shop-toolbar reveal" aria-label="Filtros de servicios">
+            <button class="shop-filter is-active" type="button" data-filter="all">Todo</button>
+            <button class="shop-filter" type="button" data-filter="marca">Marca</button>
+            <button class="shop-filter" type="button" data-filter="social">Redes</button>
+            <button class="shop-filter" type="button" data-filter="web">Web</button>
+            <button class="shop-filter" type="button" data-filter="kit">Kits</button>
+          </div>
+
+          <div class="shop-layout">
+            <aside class="card shop-basket reveal-left" aria-label="Pedido rápido">
+              <div class="shop-basket__top">
+                <span class="mini-kicker">Pedido rápido</span>
+                <strong><span id="basketCount">0</span> items</strong>
+              </div>
+              <h3>Arma tu pack sin perderte.</h3>
+              <p>Agrega servicios y la cotización se organiza automáticamente para WhatsApp.</p>
+              <div class="basket-items" id="basketItems">
+                <div class="basket-empty" id="basketEmpty">Aún no agregaste servicios.</div>
+              </div>
+              <div class="basket-total">
+                <span>Total estimado desde</span>
+                <strong id="basketTotal">$0</strong>
+              </div>
+              <a class="btn btn--primary btn--wide" href="#cotizar">Finalizar pedido <svg class="icon"><use href="#i-arrow"></use></svg></a>
+              <small>El total es una guía inicial. El precio final se confirma según alcance y materiales.</small>
+            </aside>
+
+            <div class="shop-products" id="shopProducts">
+              <article class="card product-card reveal" data-category="marca" data-service="Logo profesional" data-price="45" data-delivery="2-5 días">
+                <div class="product-media product-media--brand" style="--product-img:var(--img-service-logo)">
+                  <span class="product-sku">TS-01</span>
                   <svg class="icon"><use href="#i-brand"></use></svg>
+                  <div class="product-glow"></div>
                 </div>
-                <span class="service-tag">Marca</span>
-              </div>
-              <h3>Identidad visual</h3>
-              <p>Logos memorables, paleta, variaciones, uso correcto y piezas base para WhatsApp, redes y web.</p>
-              <div class="service-meta">
-                <span><strong>Desde $45</strong></span>
-                <span>2-5 días</span>
-              </div>
-            </article>
-            <article class="card service-card reveal">
-              <div class="service-card__top">
-                <div class="service-icon">
+                <div class="product-body">
+                  <div class="product-head"><span class="service-tag">Marca</span><strong>Desde $45</strong></div>
+                  <h3>Logo profesional</h3>
+                  <p>Logo principal, versión secundaria, favicon y guía rápida de uso para que la marca se vea seria desde el primer contacto.</p>
+                  <div class="product-specs"><span>2-5 días</span><span>2 revisiones</span><span>Archivos listos</span></div>
+                  <div class="product-actions">
+                    <button class="btn btn--primary shop-add" type="button">Agregar</button>
+                    <a class="btn btn--ghost shop-quote" href="#cotizar" data-plan="Logo profesional">Cotizar</a>
+                  </div>
+                </div>
+              </article>
+
+              <article class="card product-card reveal" data-category="social" data-service="Flyers para Instagram" data-price="15" data-delivery="24-72h">
+                <div class="product-media product-media--social" style="--product-img:var(--img-service-flyers)">
+                  <span class="product-sku">TS-02</span>
                   <svg class="icon"><use href="#i-phone"></use></svg>
+                  <div class="product-glow"></div>
                 </div>
-                <span class="service-tag">Social</span>
-              </div>
-              <h3>Flyers y redes</h3>
-              <p>Posts, stories, promociones, carruseles y anuncios con estética consistente y enfoque de venta.</p>
-              <div class="service-meta">
-                <span><strong>Desde $15</strong></span>
-                <span>24-72h</span>
-              </div>
-            </article>
-            <article class="card service-card reveal">
-              <div class="service-card__top">
-                <div class="service-icon">
+                <div class="product-body">
+                  <div class="product-head"><span class="service-tag">Social</span><strong>Desde $15</strong></div>
+                  <h3>Flyers y posts</h3>
+                  <p>Promociones, stories, carruseles y anuncios con jerarquía clara para que el cliente entienda la oferta rápido.</p>
+                  <div class="product-specs"><span>24-72h</span><span>IG / story</span><span>Alta nitidez</span></div>
+                  <div class="product-actions">
+                    <button class="btn btn--primary shop-add" type="button">Agregar</button>
+                    <a class="btn btn--ghost shop-quote" href="#cotizar" data-plan="Flyers para Instagram">Cotizar</a>
+                  </div>
+                </div>
+              </article>
+
+              <article class="card product-card product-card--featured reveal" data-category="web" data-service="Landing page" data-price="180" data-delivery="5-10 días">
+                <div class="product-ribbon">Más rentable</div>
+                <div class="product-media product-media--web" style="--product-img:var(--img-service-web)">
+                  <span class="product-sku">TS-03</span>
                   <svg class="icon"><use href="#i-web"></use></svg>
+                  <div class="product-glow"></div>
                 </div>
-                <span class="service-tag">Web</span>
-              </div>
-              <h3>Landing pages</h3>
-              <p>Páginas rápidas, responsive, nítidas y pensadas para convertir visitas en mensajes por WhatsApp.</p>
-              <div class="service-meta">
-                <span><strong>Desde $180</strong></span>
-                <span>5-10 días</span>
-              </div>
-            </article>
-            <article class="card service-card reveal">
-              <div class="service-card__top">
-                <div class="service-icon">
+                <div class="product-body">
+                  <div class="product-head"><span class="service-tag">Web</span><strong>Desde $180</strong></div>
+                  <h3>Landing page premium</h3>
+                  <p>Página rápida, responsive y enfocada en convertir visitas en mensajes por WhatsApp con estética profesional.</p>
+                  <div class="product-specs"><span>5-10 días</span><span>Responsive</span><span>CTA WhatsApp</span></div>
+                  <div class="product-actions">
+                    <button class="btn btn--primary shop-add" type="button">Agregar</button>
+                    <a class="btn btn--ghost shop-quote" href="#cotizar" data-plan="Landing page">Cotizar</a>
+                  </div>
+                </div>
+              </article>
+
+              <article class="card product-card reveal" data-category="web" data-service="Catálogo digital" data-price="60" data-delivery="3-6 días">
+                <div class="product-media product-media--catalog" style="--product-img:var(--img-service-catalogo)">
+                  <span class="product-sku">TS-04</span>
                   <svg class="icon"><use href="#i-catalog"></use></svg>
+                  <div class="product-glow"></div>
                 </div>
-                <span class="service-tag">PDF</span>
-              </div>
-              <h3>Catálogos digitales</h3>
-              <p>Menús, listas de servicios o productos organizados para enviar, vender y cotizar más fácil.</p>
-              <div class="service-meta">
-                <span><strong>Desde $60</strong></span>
-                <span>3-6 días</span>
-              </div>
-            </article>
-            <article class="card service-card reveal">
-              <div class="service-card__top">
-                <div class="service-icon">
+                <div class="product-body">
+                  <div class="product-head"><span class="service-tag">Catálogo</span><strong>Desde $60</strong></div>
+                  <h3>Catálogo digital</h3>
+                  <p>Menú, lista de servicios o productos organizado para enviar por WhatsApp, publicar o presentar al cliente.</p>
+                  <div class="product-specs"><span>3-6 días</span><span>PDF / web</span><span>Orden comercial</span></div>
+                  <div class="product-actions">
+                    <button class="btn btn--primary shop-add" type="button">Agregar</button>
+                    <a class="btn btn--ghost shop-quote" href="#cotizar" data-plan="Catálogo digital">Cotizar</a>
+                  </div>
+                </div>
+              </article>
+
+              <article class="card product-card reveal" data-category="kit" data-service="Plantillas editables" data-price="35" data-delivery="2-4 días">
+                <div class="product-media product-media--kit" style="--product-img:var(--img-service-plantillas)">
+                  <span class="product-sku">TS-05</span>
                   <svg class="icon"><use href="#i-copy"></use></svg>
+                  <div class="product-glow"></div>
                 </div>
-                <span class="service-tag">Kit</span>
-              </div>
-              <h3>Plantillas editables</h3>
-              <p>Kits para Canva/PSD con estructura visual para que el negocio publique sin perder identidad.</p>
-              <div class="service-meta">
-                <span><strong>Desde $35</strong></span>
-                <span>2-4 días</span>
-              </div>
-            </article>
-            <article class="card service-card reveal">
-              <div class="service-card__top">
-                <div class="service-icon">
+                <div class="product-body">
+                  <div class="product-head"><span class="service-tag">Kit</span><strong>Desde $35</strong></div>
+                  <h3>Plantillas editables</h3>
+                  <p>Kits para Canva o PSD con portada, post, story y promoción, listos para reutilizar sin perder identidad.</p>
+                  <div class="product-specs"><span>2-4 días</span><span>Editable</span><span>Canva / PSD</span></div>
+                  <div class="product-actions">
+                    <button class="btn btn--primary shop-add" type="button">Agregar</button>
+                    <a class="btn btn--ghost shop-quote" href="#cotizar" data-plan="Plantillas editables">Cotizar</a>
+                  </div>
+                </div>
+              </article>
+
+              <article class="card product-card reveal" data-category="marca" data-service="Pack completo de marca" data-price="120" data-delivery="5-14 días">
+                <div class="product-media product-media--pack" style="--product-img:var(--img-service-pack)">
+                  <span class="product-sku">TS-06</span>
                   <svg class="icon"><use href="#i-box"></use></svg>
+                  <div class="product-glow"></div>
                 </div>
-                <span class="service-tag">Sistema</span>
-              </div>
-              <h3>Packs completos</h3>
-              <p>Marca, redes, catálogo y landing conectados en una presencia digital coherente.</p>
-              <div class="service-meta">
-                <span><strong>Desde $120</strong></span>
-                <span>5-14 días</span>
-              </div>
-            </article>
+                <div class="product-body">
+                  <div class="product-head"><span class="service-tag">Pack</span><strong>Desde $120</strong></div>
+                  <h3>Pack completo</h3>
+                  <p>Identidad, redes, catálogo y guía visual conectados en una sola presencia digital con dirección clara.</p>
+                  <div class="product-specs"><span>5-14 días</span><span>Todo conectado</span><span>Mejor valor</span></div>
+                  <div class="product-actions">
+                    <button class="btn btn--primary shop-add" type="button">Agregar</button>
+                    <a class="btn btn--ghost shop-quote" href="#cotizar" data-plan="Pack completo de marca">Cotizar</a>
+                  </div>
+                </div>
+              </article>
+            </div>
           </div>
         </div>
       </section>
@@ -2914,7 +3520,7 @@ svg.icon{
           <div class="niche-tabs reveal" role="tablist" aria-label="Tipos de negocio">
             <button class="niche-tab is-active" type="button" data-niche="barberia">Barbería urbana</button>
             <button class="niche-tab" type="button" data-niche="restaurante">Restaurante local</button>
-            <button class="niche-tab" type="button" data-niche="taller">Taller técnico</button>
+            <button class="niche-tab" type="button" data-niche="boutique">Boutique premium</button>
             <button class="niche-tab" type="button" data-niche="salon">Salón de belleza</button>
             <button class="niche-tab" type="button" data-niche="tienda">Tienda de ropa</button>
           </div>
@@ -2994,8 +3600,8 @@ svg.icon{
               </div>
               <div class="project-body">
                 <span>Web + catálogo</span>
-                <h3>Taller electromecánico</h3>
-                <p>Servicios técnicos presentados con confianza y orden.</p>
+                <h3>Boutique premium</h3>
+                <p>Colecciones, lanzamientos y catálogo con estética de alto valor.</p>
               </div>
             </article>
             <article class="card project-card reveal">
@@ -3143,70 +3749,130 @@ svg.icon{
         <div class="container">
           <div class="section__head reveal">
             <div>
-              <div class="kicker">Cotización inteligente</div>
-              <h2 class="section__title">El formulario convierte la idea del cliente en un mensaje listo para WhatsApp.</h2>
+              <div class="kicker">Brief premium</div>
+              <h2 class="section__title">Un formulario con orden de tienda, no una lista aburrida de campos.</h2>
             </div>
-            <p class="section__copy">Rellena los datos y la página prepara una cotización ordenada. También guarda el último lead en localStorage.</p>
+            <p class="section__copy">El cliente avanza por bloques: contacto, negocio, proyecto y estilo. Al final recibe un mensaje listo para WhatsApp con el pedido armado.</p>
           </div>
-          <div class="quote-panel">
-            <article class="card quote-card reveal-left">
+          <div class="quote-panel quote-panel--premium">
+            <article class="card quote-card quote-card--premium reveal-left">
+              <div class="quote-progress" aria-label="Pasos de cotización">
+                <span class="is-active">01 Contacto</span>
+                <span>02 Negocio</span>
+                <span>03 Proyecto</span>
+              </div>
               <form id="quoteForm">
-                <div class="form-grid">
-                  <div class="field">
-                    <label for="nombre">Nombre</label>
-                    <input class="input" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                <input type="hidden" id="selectedServices" name="pedido" value="">
+                <section class="quote-step">
+                  <div class="quote-step__head">
+                    <span>01</span>
+                    <div>
+                      <h3>Datos para responderte</h3>
+                      <p>Lo mínimo para iniciar la conversación sin fricción.</p>
+                    </div>
                   </div>
-                  <div class="field">
-                    <label for="telefono">WhatsApp</label>
-                    <input class="input" id="telefono" name="telefono" placeholder="+507 6000-0000" required>
+                  <div class="form-grid">
+                    <div class="field">
+                      <label for="nombre">Nombre</label>
+                      <input class="input" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                    </div>
+                    <div class="field">
+                      <label for="telefono">WhatsApp</label>
+                      <input class="input" id="telefono" name="telefono" placeholder="+507 6000-0000" required>
+                    </div>
                   </div>
-                  <div class="field">
-                    <label for="negocio">Nombre del negocio</label>
-                    <input class="input" id="negocio" name="negocio" placeholder="Ej: Barbería El Patrón" required>
+                </section>
+
+                <section class="quote-step">
+                  <div class="quote-step__head">
+                    <span>02</span>
+                    <div>
+                      <h3>Información del negocio</h3>
+                      <p>Así se adapta la propuesta al tipo de cliente que quieres atraer.</p>
+                    </div>
                   </div>
-                  <div class="field">
-                    <label for="tipo">Tipo de negocio</label>
-                    <input class="input" id="tipo" name="tipo" placeholder="Barbería, restaurante, tienda..." required>
+                  <div class="form-grid">
+                    <div class="field">
+                      <label for="negocio">Nombre del negocio</label>
+                      <input class="input" id="negocio" name="negocio" placeholder="Ej: Aura Beauty Studio" required>
+                    </div>
+                    <div class="field">
+                      <label for="tipo">Tipo de negocio</label>
+                      <input class="input" id="tipo" name="tipo" placeholder="Barbería, restaurante, boutique..." required>
+                    </div>
+                    <div class="field">
+                      <label for="servicio">Servicio principal</label>
+                      <select class="select" id="servicio" name="servicio">
+                        <option>Pack Negocio Pro</option>
+                        <option>Pack Emprendedor</option>
+                        <option>Pack Presencia Digital</option>
+                        <option>Pack Marca Completa</option>
+                        <option>Logo profesional</option>
+                        <option>Flyers para Instagram</option>
+                        <option>Landing page</option>
+                        <option>Catálogo digital</option>
+                        <option>Plantillas editables</option>
+                        <option>Pack completo de marca</option>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label for="presupuesto">Presupuesto aproximado</label>
+                      <select class="select" id="presupuesto" name="presupuesto">
+                        <option>$45 - $80</option>
+                        <option>$120 - $180</option>
+                        <option>$220 - $350</option>
+                        <option>$400 - $700+</option>
+                        <option>Quiero cotizar</option>
+                      </select>
+                    </div>
                   </div>
-                  <div class="field">
-                    <label for="servicio">Servicio deseado</label>
-                    <select class="select" id="servicio" name="servicio">
-                      <option>Pack Negocio Pro</option>
-                      <option>Pack Emprendedor</option>
-                      <option>Pack Presencia Digital</option>
-                      <option>Pack Marca Completa</option>
-                      <option>Logo profesional</option>
-                      <option>Flyers para Instagram</option>
-                      <option>Landing page</option>
-                      <option>Catálogo digital</option>
-                      <option>Plantillas editables</option>
-                    </select>
+                </section>
+
+                <section class="quote-step">
+                  <div class="quote-step__head">
+                    <span>03</span>
+                    <div>
+                      <h3>Estilo, fecha y detalles</h3>
+                      <p>Define la dirección visual para evitar diseños genéricos.</p>
+                    </div>
                   </div>
-                  <div class="field">
-                    <label for="presupuesto">Presupuesto aproximado</label>
-                    <select class="select" id="presupuesto" name="presupuesto">
-                      <option>$45 - $80</option>
-                      <option>$120 - $180</option>
-                      <option>$220 - $350</option>
-                      <option>$400 - $700+</option>
-                      <option>Quiero cotizar</option>
-                    </select>
+                  <div class="brief-choice" aria-label="Estilo visual">
+                    <label>
+                      <input type="radio" name="estilo" value="Premium moderno" checked>
+                      <span>Premium moderno</span>
+                    </label>
+                    <label>
+                      <input type="radio" name="estilo" value="Tropical futurista">
+                      <span>Tropical futurista</span>
+                    </label>
+                    <label>
+                      <input type="radio" name="estilo" value="Elegante minimalista">
+                      <span>Elegante minimalista</span>
+                    </label>
                   </div>
-                  <div class="field">
-                    <label for="colores">Colores preferidos</label>
-                    <input class="input" id="colores" name="colores" placeholder="Verde, negro, dorado...">
+                  <div class="form-grid">
+                    <div class="field">
+                      <label for="colores">Colores preferidos</label>
+                      <input class="input" id="colores" name="colores" placeholder="Negro, cian, magenta, dorado...">
+                    </div>
+                    <div class="field">
+                      <label for="fecha">Fecha ideal</label>
+                      <input class="input" id="fecha" name="fecha" placeholder="Ej: Esta semana">
+                    </div>
+                    <div class="field field--full">
+                      <label for="mensaje">Detalles importantes</label>
+                      <textarea class="textarea" id="mensaje" name="mensaje" placeholder="Cuéntanos qué necesitas, referencias, redes, productos, competencia o ideas importantes..."></textarea>
+                    </div>
                   </div>
-                  <div class="field">
-                    <label for="fecha">Fecha ideal</label>
-                    <input class="input" id="fecha" name="fecha" placeholder="Ej: Esta semana">
-                  </div>
-                  <div class="field field--full">
-                    <label for="mensaje">Detalles del proyecto</label>
-                    <textarea class="textarea" id="mensaje" name="mensaje" placeholder="Cuéntanos qué necesitas, referencias, estilo, redes sociales o ideas importantes..."></textarea>
-                  </div>
+                </section>
+
+                <div class="selected-preview" id="selectedPreview">
+                  <strong>Pedido seleccionado</strong>
+                  <span>Agrega servicios desde la tienda o elige un paquete.</span>
                 </div>
+
                 <div class="form-actions">
-                  <button class="btn btn--primary" type="submit">Preparar WhatsApp</button>
+                  <button class="btn btn--primary" type="submit">Enviar a WhatsApp <svg class="icon"><use href="#i-arrow"></use></svg></button>
                   <button class="btn btn--dark" type="button" id="copyQuote">Copiar resumen</button>
                   <button class="btn btn--ghost" type="reset">Limpiar</button>
                 </div>
@@ -3214,29 +3880,17 @@ svg.icon{
               </form>
             </article>
             <aside class="quote-side reveal-right">
-              <article class="card summary-box">
-                <h3>Cómo se cierra la venta</h3>
-                <p>La página no obliga al cliente a comprar a ciegas: lo guía a una conversación organizada por WhatsApp para cerrar alcance, pago y fecha.</p>
-                <ul class="summary-list">
-                  <li>
-                    <svg class="icon"><use href="#i-check"></use></svg>
-                    <span>Mensaje armado automáticamente</span>
-                  </li>
-                  <li>
-                    <svg class="icon"><use href="#i-check"></use></svg>
-                    <span>Lead guardado en el navegador</span>
-                  </li>
-                  <li>
-                    <svg class="icon"><use href="#i-check"></use></svg>
-                    <span>Estructura lista para pagos después</span>
-                  </li>
-                  <li>
-                    <svg class="icon"><use href="#i-check"></use></svg>
-                    <span>Proceso claro para evitar confusión</span>
-                  </li>
-                </ul>
+              <article class="card quote-summary-live">
+                <span class="mini-kicker">Experiencia del cliente</span>
+                <h3>Primero elige, luego explica.</h3>
+                <p>La tienda despierta intención y el formulario recoge la información sin parecer tarea escolar.</p>
+                <div class="quote-mini-grid">
+                  <div><strong>01</strong><span>Pedido visual</span></div>
+                  <div><strong>02</strong><span>Brief ordenado</span></div>
+                  <div><strong>03</strong><span>WhatsApp listo</span></div>
+                </div>
               </article>
-              <div class="payment-grid">
+              <div class="payment-grid payment-grid--premium">
                 <article class="payment-card">
                   <strong>Yappy</strong>
                   <span>Pago local rápido para Panamá.</span>
@@ -3247,11 +3901,11 @@ svg.icon{
                 </article>
                 <article class="payment-card">
                   <strong>Adelanto</strong>
-                  <span>Inicio del proyecto con pago parcial.</span>
+                  <span>Inicio con pago parcial según alcance.</span>
                 </article>
                 <article class="payment-card">
-                  <strong>Botón web</strong>
-                  <span>Estructura preparada para integrarlo después.</span>
+                  <strong>Pago web</strong>
+                  <span>Base preparada para integrar checkout después.</span>
                 </article>
               </div>
             </aside>
@@ -3353,6 +4007,7 @@ svg.icon{
           <div>
             <a class="brand" href="#inicio">
               <span class="brand__mark" aria-hidden="true">
+                <img class="brand__logo-img" src="img/tropix-logo.png" alt="" onerror="this.remove()">
                 <svg class="brand__glyph" viewBox="0 0 64 64">
                   <path d="M14 18h37l-7 9H33v24H22V27H7l7-9Z" fill="currentColor"/>
                   <path d="M35 28h16L39 51H26l9-23Z" fill="rgba(3,17,13,.72)"/>
@@ -3433,6 +4088,13 @@ svg.icon{
   const quoteResult = $('#quoteResult');
   const copyQuote = $('#copyQuote');
   const cursorLight = $('#cursorLight');
+  const basketItems = $('#basketItems');
+  const basketCount = $('#basketCount');
+  const basketTotal = $('#basketTotal');
+  const basketEmpty = $('#basketEmpty');
+  const selectedServicesInput = $('#selectedServices');
+  const selectedPreview = $('#selectedPreview');
+  const selectedServices = new Map();
 
   const storedTheme = localStorage.getItem('tropix_theme');
   if (storedTheme === 'dark' || storedTheme === 'light') {
@@ -3506,7 +4168,107 @@ svg.icon{
     });
   });
 
-  $$('.package-card .btn').forEach((button) => {
+
+  const setSelectValue = (value) => {
+    const select = $('[name="servicio"]');
+    if (!value || !select) return;
+    const option = [...select.options].find((item) => item.value === value || item.textContent === value);
+    if (option) {
+      select.value = option.value;
+    }
+  };
+
+  const servicesText = () => [...selectedServices.values()]
+    .map((item) => `${item.name} ($${item.price}+ · ${item.delivery})`)
+    .join(', ');
+
+  const syncSelectedServices = () => {
+    const text = servicesText();
+    if (selectedServicesInput) {
+      selectedServicesInput.value = text;
+    }
+    if (selectedPreview) {
+      selectedPreview.innerHTML = text
+        ? `<strong>Pedido seleccionado</strong><span>${text}</span>`
+        : '<strong>Pedido seleccionado</strong><span>Agrega servicios desde la tienda o elige un paquete.</span>';
+    }
+  };
+
+  const renderBasket = () => {
+    const items = [...selectedServices.values()];
+    const total = items.reduce((sum, item) => sum + Number(item.price || 0), 0);
+
+    if (basketCount) basketCount.textContent = String(items.length);
+    if (basketTotal) basketTotal.textContent = `$${total}`;
+
+    if (!basketItems) return;
+
+    if (!items.length) {
+      basketItems.innerHTML = '<div class="basket-empty" id="basketEmpty">Aún no agregaste servicios.</div>';
+      syncSelectedServices();
+      return;
+    }
+
+    basketItems.innerHTML = items.map((item) => `
+      <div class="basket-row">
+        <div>
+          <strong>${item.name}</strong>
+          <span>Desde $${item.price} · ${item.delivery}</span>
+        </div>
+        <button class="basket-remove" type="button" aria-label="Quitar ${item.name}" data-remove="${item.name}">×</button>
+      </div>
+    `).join('');
+
+    $$('.basket-remove', basketItems).forEach((button) => {
+      button.addEventListener('click', () => {
+        selectedServices.delete(button.dataset.remove);
+        renderBasket();
+      });
+    });
+
+    syncSelectedServices();
+  };
+
+  $$('.shop-filter').forEach((button) => {
+    button.addEventListener('click', () => {
+      const filter = button.dataset.filter || 'all';
+      $$('.shop-filter').forEach((item) => item.classList.remove('is-active'));
+      button.classList.add('is-active');
+
+      $$('.product-card').forEach((card) => {
+        const visible = filter === 'all' || card.dataset.category === filter;
+        card.classList.toggle('is-hidden', !visible);
+      });
+    });
+  });
+
+  $$('.shop-add').forEach((button) => {
+    button.addEventListener('click', () => {
+      const card = button.closest('.product-card');
+      if (!card) return;
+
+      const item = {
+        name: card.dataset.service || 'Servicio creativo',
+        price: card.dataset.price || '0',
+        delivery: card.dataset.delivery || 'Por confirmar'
+      };
+
+      selectedServices.set(item.name, item);
+      setSelectValue(item.name);
+      renderBasket();
+
+      button.textContent = 'Agregado';
+      button.classList.add('is-added');
+      setTimeout(() => {
+        button.textContent = 'Agregar';
+        button.classList.remove('is-added');
+      }, 1100);
+    });
+  });
+
+  renderBasket();
+
+  $$('.package-card .btn, .shop-quote').forEach((button) => {
     button.addEventListener('click', () => {
       const plan = button.dataset.plan;
       const select = $('[name="servicio"]');
@@ -3527,11 +4289,11 @@ svg.icon{
       desc: 'Menú digital, promociones y presencia visual que abre el apetito.',
       items: ['Menú PDF elegante', 'Stories de ofertas', 'Landing con ubicación y contacto']
     },
-    taller: {
-      mark: 'TECH',
-      title: 'Taller técnico',
-      desc: 'Servicios mecánicos o electromecánicos presentados con orden y confianza.',
-      items: ['Catálogo de servicios', 'Web de confianza', 'Piezas para redes y Google']
+    boutique: {
+      mark: 'LUX',
+      title: 'Boutique premium',
+      desc: 'Colecciones, drops y catálogo visual con una estética más aspiracional.',
+      items: ['Catálogo por colección', 'Stories de lanzamiento', 'Landing para pedidos por WhatsApp']
     },
     salon: {
       mark: 'GLAM',
@@ -3575,6 +4337,8 @@ svg.icon{
   const buildQuoteText = () => {
     if (!quoteForm) return '';
     const data = Object.fromEntries(new FormData(quoteForm).entries());
+    const pedido = data.pedido || servicesText() || data.servicio || 'No definido';
+
     return [
       'Hola Trópix Studio, quiero cotizar un servicio digital.',
       '',
@@ -3582,7 +4346,9 @@ svg.icon{
       `WhatsApp: ${data.telefono || 'No definido'}`,
       `Negocio: ${data.negocio || 'No definido'}`,
       `Tipo de negocio: ${data.tipo || 'No definido'}`,
-      `Servicio: ${data.servicio || 'No definido'}`,
+      `Pedido seleccionado: ${pedido}`,
+      `Servicio principal: ${data.servicio || 'No definido'}`,
+      `Estilo visual: ${data.estilo || 'No definido'}`,
       `Presupuesto: ${data.presupuesto || 'No definido'}`,
       `Colores: ${data.colores || 'No definido'}`,
       `Fecha ideal: ${data.fecha || 'No definida'}`,
@@ -3621,6 +4387,12 @@ svg.icon{
       quoteResult.classList.add('is-active');
       quoteResult.innerHTML = '<strong>No se pudo copiar automáticamente.</strong><br>Selecciona el texto del formulario y cópialo manualmente.';
     }
+  });
+
+
+  quoteForm?.addEventListener('reset', () => {
+    selectedServices.clear();
+    setTimeout(renderBasket, 0);
   });
 
   if (cursorLight && matchMedia('(pointer:fine)').matches) {
