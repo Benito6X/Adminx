@@ -1,0 +1,3635 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Trópix Studio: tienda digital premium de logos, flyers, páginas web, catálogos y sistemas visuales para negocios que quieren verse profesionales y vender mejor.">
+  <meta name="theme-color" content="#06100d">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Trópix Studio — Diseño, Web y Presencia Digital Premium">
+  <meta property="og:description" content="Logos, flyers, páginas web, catálogos y packs completos para negocios locales con identidad visual nítida.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Trópix Studio — Diseño, Web y Presencia Digital Premium</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 128 128%27%3E%3Crect width=%27128%27 height=%27128%27 rx=%2734%27 fill=%27%23061210%27/%3E%3Cpath d=%27M27 34h74L83 57H70v42H48V57H9L27 34Z%27 fill=%27%232af5aa%27/%3E%3Cpath d=%27M73 59h35L83 99H55l18-40Z%27 fill=%27%2336e7ff%27/%3E%3C/svg%3E">
+  <style>
+/*
+============================================================
+TRÓPIX STUDIO — INDEX PREMIUM
+Archivo único: HTML + CSS + JS.
+Dirección visual: tropical futurista, premium, nítida y comercial.
+Objetivo: vender servicios digitales sin parecer una plantilla genérica.
+============================================================
+*/
+:root{
+  --bg-0:#030807;
+  --bg-1:#06100d;
+  --bg-2:#081a16;
+  --bg-3:#0b2420;
+  --surface-0:rgba(255,255,255,.055);
+  --surface-1:rgba(255,255,255,.085);
+  --surface-2:rgba(255,255,255,.125);
+  --surface-3:rgba(255,255,255,.17);
+  --glass-0:rgba(5,18,15,.62);
+  --glass-1:rgba(5,18,15,.78);
+  --line-0:rgba(255,255,255,.09);
+  --line-1:rgba(255,255,255,.15);
+  --line-2:rgba(255,255,255,.25);
+  --text-0:#f5fff9;
+  --text-1:rgba(245,255,249,.78);
+  --text-2:rgba(245,255,249,.58);
+  --text-3:rgba(245,255,249,.42);
+  --green:#2af5aa;
+  --green-2:#1ed28f;
+  --aqua:#36e7ff;
+  --aqua-2:#42a5ff;
+  --gold:#ffd36a;
+  --coral:#ff6a7a;
+  --violet:#9a73ff;
+  --ink:#03110d;
+  --danger:#ff5570;
+  --ok:#2af5aa;
+  --shadow-soft:0 24px 90px rgba(0,0,0,.32);
+  --shadow-deep:0 45px 140px rgba(0,0,0,.56);
+  --shadow-green:0 22px 70px rgba(42,245,170,.22);
+  --radius-xs:12px;
+  --radius-sm:18px;
+  --radius-md:26px;
+  --radius-lg:34px;
+  --radius-xl:46px;
+  --radius-round:999px;
+  --container:1180px;
+  --nav-h:82px;
+  --font:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --display:Sora,Inter,ui-sans-serif,system-ui,sans-serif;
+  --ease:cubic-bezier(.19,1,.22,1);
+  --ease-2:cubic-bezier(.2,.8,.2,1);
+}
+[data-theme="light"]{
+  --bg-0:#f4fbf6;
+  --bg-1:#eaf7f0;
+  --bg-2:#dff1e8;
+  --bg-3:#d5eee3;
+  --surface-0:rgba(4,22,18,.045);
+  --surface-1:rgba(4,22,18,.075);
+  --surface-2:rgba(4,22,18,.105);
+  --surface-3:rgba(4,22,18,.14);
+  --glass-0:rgba(255,255,255,.66);
+  --glass-1:rgba(255,255,255,.84);
+  --line-0:rgba(4,22,18,.08);
+  --line-1:rgba(4,22,18,.14);
+  --line-2:rgba(4,22,18,.24);
+  --text-0:#06110e;
+  --text-1:rgba(6,17,14,.76);
+  --text-2:rgba(6,17,14,.56);
+  --text-3:rgba(6,17,14,.4);
+  --shadow-soft:0 22px 70px rgba(4,22,18,.12);
+  --shadow-deep:0 34px 100px rgba(4,22,18,.2);
+  --shadow-green:0 20px 60px rgba(42,245,170,.18);
+}
+*{
+  box-sizing:border-box;
+}
+*::before,
+*::after{
+  box-sizing:border-box;
+}
+html{
+  scroll-behavior:smooth;
+  text-rendering:geometricPrecision;
+}
+body{
+  min-height:100vh;
+  margin:0;
+  font-family:var(--font);
+  color:var(--text-0);
+  background:
+    radial-gradient(circle at 8% -2%,rgba(42,245,170,.24),transparent 31rem),
+    radial-gradient(circle at 100% 5%,rgba(54,231,255,.18),transparent 34rem),
+    radial-gradient(circle at 50% 28%,rgba(154,115,255,.13),transparent 38rem),
+    linear-gradient(180deg,var(--bg-0),var(--bg-1) 36%,var(--bg-2));
+  overflow-x:hidden;
+}
+body.lock{
+  overflow:hidden;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-5;
+  pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:64px 64px;
+  mask-image:radial-gradient(circle at 50% 10%,#000,transparent 75%);
+}
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-4;
+  pointer-events:none;
+  background:
+    linear-gradient(120deg,transparent 0%,rgba(255,255,255,.055) 45%,transparent 72%);
+  transform:translateX(-40%);
+  animation:globalSheen 14s ease-in-out infinite;
+  opacity:.38;
+}
+@keyframes globalSheen{
+  0%,100%{
+    transform:translateX(-42%);
+  }
+  50%{
+    transform:translateX(42%);
+  }
+}
+::selection{
+  background:rgba(42,245,170,.34);
+  color:var(--text-0);
+}
+a{
+  color:inherit;
+  text-decoration:none;
+}
+button,
+input,
+textarea,
+select{
+  font:inherit;
+}
+button{
+  border:0;
+  cursor:pointer;
+}
+img,
+svg{
+  display:block;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+  margin-top:0;
+}
+p{
+  margin-bottom:0;
+}
+svg.icon{
+  width:1.12em;
+  height:1.12em;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:2.25;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  flex:0 0 auto;
+}
+.site-shell{
+  position:relative;
+  min-height:100vh;
+  isolation:isolate;
+}
+.noise{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  pointer-events:none;
+  opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.cursor-light{
+  position:fixed;
+  left:0;
+  top:0;
+  z-index:-2;
+  width:34rem;
+  height:34rem;
+  pointer-events:none;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(42,245,170,.16),transparent 68%);
+  filter:blur(14px);
+  transform:translate3d(-50%,-50%,0);
+  opacity:.85;
+}
+.bg-orbs{
+  position:fixed;
+  inset:0;
+  z-index:-3;
+  pointer-events:none;
+  overflow:hidden;
+}
+.bg-orbs span{
+  position:absolute;
+  width:40rem;
+  height:40rem;
+  border-radius:50%;
+  filter:blur(70px);
+  opacity:.13;
+  animation:orbFloat 16s var(--ease) infinite;
+}
+.bg-orbs span:nth-child(1){
+  left:-14rem;
+  top:14rem;
+  background:var(--green);
+}
+.bg-orbs span:nth-child(2){
+  right:-16rem;
+  top:2rem;
+  background:var(--aqua);
+  animation-delay:-5s;
+}
+.bg-orbs span:nth-child(3){
+  left:38%;
+  bottom:-20rem;
+  background:var(--violet);
+  animation-delay:-9s;
+}
+@keyframes orbFloat{
+  50%{
+    transform:translate(28px,-42px) scale(1.12);
+  }
+}
+.container{
+  width:min(var(--container),calc(100% - 40px));
+  margin-inline:auto;
+}
+.skip-link{
+  position:fixed;
+  left:18px;
+  top:18px;
+  z-index:99999;
+  padding:12px 16px;
+  border-radius:var(--radius-round);
+  background:var(--green);
+  color:var(--ink);
+  font-weight:900;
+  transform:translateY(-130%);
+  transition:transform .25s var(--ease);
+}
+.skip-link:focus{
+  transform:none;
+}
+.icon-sprite{
+  position:absolute;
+  width:0;
+  height:0;
+  overflow:hidden;
+}
+.nav{
+  position:fixed;
+  top:16px;
+  left:0;
+  right:0;
+  z-index:1000;
+  pointer-events:none;
+}
+.nav__shell{
+  pointer-events:auto;
+  min-height:var(--nav-h);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:12px 14px 12px 16px;
+  border:1px solid var(--line-1);
+  border-radius:30px;
+  background:linear-gradient(135deg,rgba(255,255,255,.09),rgba(255,255,255,.035)),var(--glass-0);
+  backdrop-filter:blur(26px) saturate(150%);
+  box-shadow:0 16px 70px rgba(0,0,0,.34);
+}
+.brand{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  min-width:max-content;
+}
+.brand__mark{
+  position:relative;
+  width:54px;
+  height:54px;
+  border-radius:20px;
+  display:grid;
+  place-items:center;
+  background:
+    radial-gradient(circle at 26% 18%,rgba(255,255,255,.85),transparent 18%),
+    linear-gradient(135deg,var(--green),var(--aqua));
+  color:var(--ink);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.38),
+    0 18px 52px rgba(42,245,170,.25);
+  overflow:hidden;
+}
+.brand__mark::before{
+  content:"";
+  position:absolute;
+  inset:9px;
+  border-radius:15px;
+  border:1px solid rgba(3,17,13,.2);
+}
+.brand__mark::after{
+  content:"";
+  position:absolute;
+  width:34px;
+  height:140px;
+  background:rgba(255,255,255,.34);
+  transform:rotate(25deg) translateX(-84px);
+  animation:markShine 5.4s ease-in-out infinite;
+}
+@keyframes markShine{
+  0%,70%{
+    transform:rotate(25deg) translateX(-84px);
+  }
+  86%,100%{
+    transform:rotate(25deg) translateX(84px);
+  }
+}
+.brand__glyph{
+  position:relative;
+  z-index:2;
+  width:32px;
+  height:32px;
+}
+.brand__text strong{
+  display:block;
+  font-family:var(--display);
+  font-size:1rem;
+  letter-spacing:-.05em;
+}
+.brand__text span{
+  display:block;
+  margin-top:4px;
+  color:var(--text-3);
+  font-size:.69rem;
+  font-weight:900;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+.nav__links{
+  display:flex;
+  align-items:center;
+  gap:3px;
+  padding:6px;
+  border:1px solid var(--line-0);
+  border-radius:var(--radius-round);
+  background:rgba(255,255,255,.045);
+}
+.nav__links a{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  min-height:43px;
+  padding:0 14px;
+  border-radius:var(--radius-round);
+  color:var(--text-1);
+  font-size:.88rem;
+  font-weight:850;
+  letter-spacing:-.015em;
+  transition:background .25s var(--ease),color .25s var(--ease),transform .25s var(--ease);
+}
+.nav__links a:hover,
+.nav__links a.is-active{
+  color:var(--text-0);
+  background:rgba(255,255,255,.1);
+  transform:translateY(-1px);
+}
+.nav__actions{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.icon-btn{
+  width:48px;
+  height:48px;
+  border-radius:17px;
+  display:grid;
+  place-items:center;
+  border:1px solid var(--line-1);
+  background:var(--surface-0);
+  color:var(--text-0);
+  box-shadow:none;
+  transition:transform .25s var(--ease),background .25s var(--ease),border-color .25s var(--ease),box-shadow .25s var(--ease);
+}
+.icon-btn:hover{
+  transform:translateY(-2px);
+  background:var(--surface-2);
+  border-color:var(--line-2);
+  box-shadow:0 12px 40px rgba(0,0,0,.18);
+}
+.btn{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  min-height:52px;
+  padding:0 20px;
+  border-radius:var(--radius-round);
+  font-weight:950;
+  letter-spacing:-.03em;
+  white-space:nowrap;
+  overflow:hidden;
+  isolation:isolate;
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease),border-color .25s var(--ease),background .25s var(--ease),color .25s var(--ease);
+}
+.btn::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.35),transparent);
+  transform:translateX(-115%);
+  transition:transform .75s var(--ease);
+}
+.btn:hover{
+  transform:translateY(-3px);
+}
+.btn:hover::before{
+  transform:translateX(115%);
+}
+.btn--primary{
+  color:var(--ink);
+  background:linear-gradient(135deg,var(--green),var(--aqua));
+  box-shadow:var(--shadow-green);
+}
+.btn--dark{
+  color:var(--text-0);
+  background:rgba(255,255,255,.09);
+  border:1px solid var(--line-1);
+}
+.btn--dark:hover{
+  border-color:rgba(42,245,170,.3);
+  box-shadow:0 20px 60px rgba(0,0,0,.22);
+}
+.btn--ghost{
+  color:var(--text-0);
+  background:transparent;
+  border:1px solid var(--line-1);
+}
+.btn--ghost:hover{
+  background:rgba(255,255,255,.075);
+  border-color:var(--line-2);
+}
+.btn--wide{
+  width:100%;
+}
+.mobile-toggle{
+  display:none;
+}
+.mobile-menu{
+  position:fixed;
+  top:108px;
+  left:14px;
+  right:14px;
+  z-index:998;
+  display:grid;
+  gap:6px;
+  padding:14px;
+  border:1px solid var(--line-1);
+  border-radius:30px;
+  background:var(--glass-1);
+  backdrop-filter:blur(25px) saturate(150%);
+  box-shadow:var(--shadow-deep);
+  opacity:0;
+  transform:translateY(-12px) scale(.985);
+  pointer-events:none;
+  transition:opacity .25s var(--ease),transform .25s var(--ease);
+}
+.mobile-menu.is-open{
+  opacity:1;
+  transform:none;
+  pointer-events:auto;
+}
+.mobile-menu a{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  min-height:54px;
+  padding:0 16px;
+  border-radius:20px;
+  color:var(--text-1);
+  font-weight:900;
+  transition:background .25s var(--ease),color .25s var(--ease),transform .25s var(--ease);
+}
+.mobile-menu a:hover{
+  background:rgba(255,255,255,.08);
+  color:var(--text-0);
+  transform:translateX(2px);
+}
+.mobile-menu span{
+  color:var(--green);
+  font-size:.78rem;
+  letter-spacing:.12em;
+}
+.hero{
+  position:relative;
+  min-height:100svh;
+  display:grid;
+  align-items:center;
+  padding:148px 0 82px;
+  overflow:hidden;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:53%;
+  width:min(1180px,96vw);
+  height:min(1180px,96vw);
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.08);
+  background:
+    radial-gradient(circle,transparent 0 41%,rgba(42,245,170,.06) 42%,transparent 43%),
+    radial-gradient(circle,transparent 0 58%,rgba(54,231,255,.045) 59%,transparent 60%),
+    radial-gradient(circle,rgba(42,245,170,.045),transparent 68%);
+  mask-image:linear-gradient(#000,transparent 78%);
+  pointer-events:none;
+}
+.hero__grid{
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns:minmax(0,1.02fr) minmax(360px,.98fr);
+  align-items:center;
+  gap:42px;
+}
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  width:max-content;
+  max-width:100%;
+  padding:9px 12px;
+  border:1px solid rgba(42,245,170,.26);
+  border-radius:var(--radius-round);
+  color:var(--green);
+  background:rgba(42,245,170,.08);
+  box-shadow:0 0 0 7px rgba(42,245,170,.02);
+  font-size:.78rem;
+  font-weight:950;
+  letter-spacing:.03em;
+}
+.badge--gold{
+  color:var(--gold);
+  border-color:rgba(255,211,106,.25);
+  background:rgba(255,211,106,.075);
+}
+.hero__title{
+  max-width:780px;
+  margin:24px 0 18px;
+  font-family:var(--display);
+  font-size:clamp(3.45rem,7.5vw,7.8rem);
+  line-height:.86;
+  letter-spacing:-.085em;
+}
+.gradient-text{
+  background:linear-gradient(100deg,var(--text-0),var(--green) 34%,var(--aqua) 66%,var(--gold));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.hero__lead{
+  max-width:680px;
+  color:var(--text-1);
+  font-size:clamp(1rem,1.45vw,1.22rem);
+  line-height:1.72;
+}
+.hero__lead strong{
+  color:var(--text-0);
+}
+.hero__actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:13px;
+  margin-top:28px;
+}
+.hero__proof{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-top:25px;
+  color:var(--text-2);
+  font-size:.91rem;
+}
+.proof-stack{
+  display:flex;
+  align-items:center;
+}
+.proof-avatar{
+  width:38px;
+  height:38px;
+  display:grid;
+  place-items:center;
+  margin-left:-8px;
+  border:2px solid var(--bg-0);
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--green),var(--aqua));
+  color:var(--ink);
+  font-weight:950;
+}
+.proof-avatar:first-child{
+  margin-left:0;
+}
+.hero__chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-top:18px;
+}
+.chip{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:9px 11px;
+  border:1px solid var(--line-1);
+  border-radius:var(--radius-round);
+  color:var(--text-1);
+  background:rgba(255,255,255,.05);
+  font-size:.83rem;
+  font-weight:850;
+}
+.chip i{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--green);
+  box-shadow:0 0 18px var(--green);
+}
+.hero__visual{
+  position:relative;
+  min-height:660px;
+  perspective:1400px;
+}
+.studio-panel{
+  position:absolute;
+  inset:2% 0 6% 2%;
+  border:1px solid var(--line-1);
+  border-radius:48px;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.14),rgba(255,255,255,.045)),
+    radial-gradient(circle at 20% 18%,rgba(42,245,170,.18),transparent 36%),
+    radial-gradient(circle at 82% 24%,rgba(54,231,255,.16),transparent 32%);
+  box-shadow:var(--shadow-deep);
+  backdrop-filter:blur(18px);
+  overflow:hidden;
+  transform:rotateY(-7deg) rotateX(3deg);
+}
+.studio-panel::before{
+  content:"";
+  position:absolute;
+  inset:16px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:36px;
+  background:
+    linear-gradient(90deg,transparent 49%,rgba(255,255,255,.055) 50%,transparent 51%),
+    linear-gradient(0deg,transparent 49%,rgba(255,255,255,.04) 50%,transparent 51%);
+  background-size:44px 44px;
+  opacity:.72;
+}
+.studio-panel::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.13),transparent);
+  transform:translateX(-110%);
+  animation:panelSweep 7s ease-in-out infinite;
+}
+@keyframes panelSweep{
+  0%,62%{
+    transform:translateX(-110%);
+  }
+  82%,100%{
+    transform:translateX(110%);
+  }
+}
+.panel-top{
+  position:absolute;
+  z-index:3;
+  top:24px;
+  left:24px;
+  right:24px;
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 18px;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:24px;
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(12px);
+}
+.traffic{
+  display:flex;
+  gap:8px;
+}
+.traffic span{
+  width:11px;
+  height:11px;
+  border-radius:50%;
+  background:var(--green);
+}
+.traffic span:nth-child(2){
+  background:var(--gold);
+}
+.traffic span:nth-child(3){
+  background:var(--coral);
+}
+.panel-code{
+  color:var(--text-2);
+  font-size:.76rem;
+  font-weight:950;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.brand-orbit{
+  position:absolute;
+  z-index:5;
+  left:50%;
+  top:50%;
+  width:440px;
+  height:440px;
+  margin:-220px;
+  border:1px dashed rgba(255,255,255,.16);
+  border-radius:50%;
+  animation:orbitSpin 23s linear infinite;
+}
+@keyframes orbitSpin{
+  to{
+    transform:rotate(360deg);
+  }
+}
+.orbit-dot{
+  position:absolute;
+  width:58px;
+  height:58px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:20px;
+  color:var(--green);
+  background:rgba(255,255,255,.1);
+  box-shadow:0 14px 44px rgba(0,0,0,.24);
+  backdrop-filter:blur(14px);
+}
+.orbit-dot:nth-child(1){
+  left:50%;
+  top:-29px;
+  margin-left:-29px;
+}
+.orbit-dot:nth-child(2){
+  right:13px;
+  top:72px;
+}
+.orbit-dot:nth-child(3){
+  right:48px;
+  bottom:38px;
+}
+.orbit-dot:nth-child(4){
+  left:43px;
+  bottom:43px;
+}
+.orbit-dot:nth-child(5){
+  left:-23px;
+  top:142px;
+}
+.hero-phone{
+  position:absolute;
+  z-index:7;
+  right:5%;
+  bottom:2%;
+  width:min(250px,43vw);
+  height:472px;
+  padding:13px;
+  border:1px solid rgba(255,255,255,.17);
+  border-radius:44px;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.17),rgba(255,255,255,.055)),
+    linear-gradient(145deg,#071612,#0e2e29);
+  box-shadow:0 34px 95px rgba(0,0,0,.46);
+  animation:phoneFloat 5.8s ease-in-out infinite;
+}
+@keyframes phoneFloat{
+  50%{
+    transform:translateY(-14px) rotate(2deg);
+  }
+}
+.phone-screen{
+  height:100%;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:32px;
+  background:radial-gradient(circle at 50% 0,rgba(42,245,170,.32),transparent 30%),#061310;
+  display:flex;
+  flex-direction:column;
+}
+.phone-hero{
+  min-height:176px;
+  padding:18px;
+  background:
+    linear-gradient(135deg,rgba(42,245,170,.2),rgba(54,231,255,.12)),
+    radial-gradient(circle at 76% 22%,rgba(255,211,106,.28),transparent 22%);
+}
+.phone-badge{
+  width:max-content;
+  padding:6px 9px;
+  border-radius:var(--radius-round);
+  background:rgba(255,255,255,.12);
+  color:var(--green);
+  font-size:.62rem;
+  font-weight:950;
+  letter-spacing:.12em;
+}
+.phone-hero h3{
+  margin:16px 0 8px;
+  font-family:var(--display);
+  font-size:1.45rem;
+  line-height:.98;
+  letter-spacing:-.065em;
+}
+.phone-hero p{
+  color:rgba(245,255,249,.7);
+  font-size:.72rem;
+  line-height:1.5;
+}
+.phone-list{
+  display:grid;
+  gap:10px;
+  padding:14px;
+}
+.phone-item{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-height:64px;
+  padding:12px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:20px;
+  background:rgba(255,255,255,.072);
+}
+.phone-icon{
+  width:34px;
+  height:34px;
+  border-radius:13px;
+  background:linear-gradient(135deg,var(--green),var(--aqua));
+  box-shadow:0 10px 30px rgba(42,245,170,.2);
+}
+.phone-lines{
+  flex:1;
+  display:grid;
+  gap:7px;
+}
+.phone-lines span{
+  height:7px;
+  border-radius:var(--radius-round);
+  background:rgba(255,255,255,.19);
+}
+.phone-lines span:nth-child(2){
+  width:68%;
+  opacity:.68;
+}
+.float-card{
+  position:absolute;
+  z-index:8;
+  padding:16px;
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:25px;
+  background:rgba(255,255,255,.105);
+  backdrop-filter:blur(18px);
+  box-shadow:0 22px 75px rgba(0,0,0,.32);
+  animation:floatCard 6.4s ease-in-out infinite;
+}
+@keyframes floatCard{
+  50%{
+    transform:translateY(-12px);
+  }
+}
+.float-card h4{
+  margin:0 0 7px;
+  font-family:var(--display);
+  letter-spacing:-.04em;
+}
+.float-card p{
+  color:var(--text-1);
+  font-size:.8rem;
+  line-height:1.48;
+}
+.card-identity{
+  left:2%;
+  top:25%;
+  width:222px;
+}
+.card-price{
+  right:1%;
+  top:20%;
+  width:226px;
+  animation-delay:-3.4s;
+}
+.card-convert{
+  left:6%;
+  bottom:12%;
+  width:232px;
+  animation-delay:-2s;
+}
+.mini-mark{
+  width:56px;
+  height:56px;
+  display:grid;
+  place-items:center;
+  margin-bottom:13px;
+  border-radius:19px;
+  background:linear-gradient(135deg,var(--gold),var(--green));
+  color:var(--ink);
+  font-weight:950;
+  letter-spacing:-.08em;
+}
+.price-pop{
+  margin-bottom:6px;
+  font-family:var(--display);
+  font-size:2.06rem;
+  font-weight:950;
+  letter-spacing:-.075em;
+  line-height:1;
+  background:linear-gradient(135deg,var(--gold),var(--green));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.meter{
+  height:9px;
+  margin-top:14px;
+  overflow:hidden;
+  border-radius:var(--radius-round);
+  background:rgba(255,255,255,.12);
+}
+.meter span{
+  display:block;
+  width:82%;
+  height:100%;
+  border-radius:inherit;
+  background:linear-gradient(90deg,var(--green),var(--aqua));
+}
+.marquee{
+  overflow:hidden;
+  border-block:1px solid var(--line-1);
+  background:rgba(255,255,255,.035);
+}
+.marquee__track{
+  display:flex;
+  width:max-content;
+  animation:marqueeMove 30s linear infinite;
+}
+.marquee__group{
+  display:flex;
+  gap:18px;
+  padding:18px 9px;
+}
+.marquee__item{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:var(--text-1);
+  font-size:.88rem;
+  font-weight:950;
+  letter-spacing:-.015em;
+  text-transform:uppercase;
+}
+.marquee__item i{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:var(--green);
+  box-shadow:0 0 18px var(--green);
+}
+@keyframes marqueeMove{
+  to{
+    transform:translateX(-50%);
+  }
+}
+.section{
+  position:relative;
+  padding:104px 0;
+}
+.section--tight{
+  padding:72px 0;
+}
+.section__head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:28px;
+  margin-bottom:34px;
+}
+.kicker{
+  margin-bottom:13px;
+  color:var(--green);
+  font-size:.78rem;
+  font-weight:950;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+.section__title{
+  max-width:820px;
+  margin:0;
+  font-family:var(--display);
+  font-size:clamp(2.35rem,4.8vw,4.7rem);
+  line-height:.94;
+  letter-spacing:-.071em;
+}
+.section__copy{
+  max-width:430px;
+  color:var(--text-1);
+  line-height:1.75;
+}
+.stats-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+.stat-card{
+  position:relative;
+  min-height:170px;
+  padding:24px;
+  overflow:hidden;
+  border:1px solid var(--line-1);
+  border-radius:var(--radius-lg);
+  background:linear-gradient(145deg,rgba(255,255,255,.1),rgba(255,255,255,.04));
+  box-shadow:var(--shadow-soft);
+}
+.stat-card::after{
+  content:"";
+  position:absolute;
+  right:-42px;
+  top:-42px;
+  width:112px;
+  height:112px;
+  border-radius:50%;
+  background:rgba(42,245,170,.15);
+}
+.stat-card strong{
+  display:block;
+  margin-bottom:13px;
+  font-family:var(--display);
+  font-size:2.75rem;
+  line-height:.9;
+  letter-spacing:-.08em;
+}
+.stat-card span{
+  display:block;
+  color:var(--text-1);
+  font-size:.92rem;
+  line-height:1.5;
+}
+.pill-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+}
+.grid-2{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
+.grid-3{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+.grid-4{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+.card{
+  position:relative;
+  overflow:hidden;
+  border:1px solid var(--line-1);
+  border-radius:var(--radius-lg);
+  background:linear-gradient(145deg,rgba(255,255,255,.1),rgba(255,255,255,.04));
+  box-shadow:var(--shadow-soft);
+}
+.card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.1),transparent);
+  transform:translateX(-120%);
+  transition:transform .85s var(--ease);
+}
+.card:hover::before{
+  transform:translateX(120%);
+}
+.card:hover{
+  border-color:rgba(42,245,170,.34);
+}
+.direction-card{
+  min-height:310px;
+  padding:26px;
+}
+.direction-card__index{
+  color:var(--text-3);
+  font-size:.78rem;
+  font-weight:950;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.direction-card__icon{
+  width:64px;
+  height:64px;
+  display:grid;
+  place-items:center;
+  margin:28px 0 22px;
+  border:1px solid rgba(42,245,170,.2);
+  border-radius:23px;
+  color:var(--green);
+  background:rgba(42,245,170,.1);
+}
+.direction-card h3,
+.service-card h3,
+.package-card h3,
+.project-card h3,
+.process-card h3,
+.faq-card h3{
+  font-family:var(--display);
+  letter-spacing:-.05em;
+}
+.direction-card h3{
+  margin-bottom:12px;
+  font-size:1.38rem;
+}
+.direction-card p{
+  color:var(--text-1);
+  line-height:1.72;
+}
+.service-card{
+  min-height:340px;
+  display:flex;
+  flex-direction:column;
+  padding:25px;
+}
+.service-card__top{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:16px;
+  margin-bottom:22px;
+}
+.service-icon{
+  width:64px;
+  height:64px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(42,245,170,.22);
+  border-radius:24px;
+  color:var(--green);
+  background:rgba(42,245,170,.1);
+}
+.service-tag{
+  padding:7px 10px;
+  border:1px solid var(--line-1);
+  border-radius:var(--radius-round);
+  color:var(--text-2);
+  background:rgba(255,255,255,.05);
+  font-size:.72rem;
+  font-weight:950;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.service-card h3{
+  margin-bottom:12px;
+  font-size:1.42rem;
+}
+.service-card p{
+  color:var(--text-1);
+  line-height:1.72;
+}
+.service-meta{
+  display:flex;
+  justify-content:space-between;
+  gap:14px;
+  margin-top:auto;
+  padding-top:20px;
+  border-top:1px solid var(--line-1);
+  color:var(--text-2);
+  font-size:.9rem;
+}
+.service-meta strong{
+  color:var(--text-0);
+}
+.package-card{
+  min-height:590px;
+  display:flex;
+  flex-direction:column;
+  padding:24px;
+}
+.package-card--featured{
+  border-color:rgba(42,245,170,.42);
+  background:
+    radial-gradient(circle at 20% 0%,rgba(42,245,170,.2),transparent 34%),
+    linear-gradient(145deg,rgba(255,255,255,.14),rgba(255,255,255,.055));
+  box-shadow:0 34px 115px rgba(42,245,170,.15),var(--shadow-soft);
+  transform:translateY(-12px);
+}
+.ribbon{
+  position:absolute;
+  top:18px;
+  right:18px;
+  padding:7px 11px;
+  border:1px solid rgba(42,245,170,.24);
+  border-radius:var(--radius-round);
+  color:var(--green);
+  background:rgba(42,245,170,.12);
+  font-size:.68rem;
+  font-weight:950;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+.package-card h3{
+  max-width:190px;
+  margin-bottom:14px;
+  font-size:1.32rem;
+}
+.package-price{
+  margin-bottom:14px;
+  font-family:var(--display);
+  font-size:3.25rem;
+  font-weight:950;
+  line-height:1;
+  letter-spacing:-.08em;
+}
+.package-price small{
+  color:var(--text-3);
+  font-size:.9rem;
+  letter-spacing:0;
+}
+.package-card p{
+  min-height:82px;
+  color:var(--text-1);
+  line-height:1.65;
+}
+.feature-list{
+  display:grid;
+  gap:12px;
+  margin:18px 0;
+  padding:18px 0;
+  border-top:1px solid var(--line-1);
+  border-bottom:1px solid var(--line-1);
+  list-style:none;
+}
+.feature-list li{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  color:var(--text-1);
+  font-size:.92rem;
+  line-height:1.46;
+}
+.feature-list .icon{
+  margin-top:2px;
+  color:var(--green);
+  stroke-width:3;
+}
+.package-delivery{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-top:auto;
+  padding:2px 0 20px;
+  color:var(--text-2);
+  font-size:.88rem;
+}
+.package-delivery strong{
+  color:var(--text-0);
+}
+.visual-lab{
+  display:grid;
+  grid-template-columns:.95fr 1.05fr;
+  gap:18px;
+}
+.before-after{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  min-height:430px;
+  padding:16px;
+  border:1px solid var(--line-1);
+  border-radius:44px;
+  background:linear-gradient(145deg,rgba(255,255,255,.105),rgba(255,255,255,.045));
+  box-shadow:var(--shadow-soft);
+}
+.ba-panel{
+  position:relative;
+  overflow:hidden;
+  min-height:390px;
+  padding:20px;
+  border:1px solid var(--line-1);
+  border-radius:30px;
+  background:rgba(255,255,255,.045);
+}
+.ba-panel--after{
+  background:
+    radial-gradient(circle at 28% 18%,rgba(42,245,170,.22),transparent 38%),
+    radial-gradient(circle at 80% 70%,rgba(54,231,255,.18),transparent 35%),
+    rgba(255,255,255,.07);
+}
+.ba-label{
+  position:absolute;
+  top:16px;
+  left:16px;
+  z-index:2;
+  padding:7px 10px;
+  border-radius:var(--radius-round);
+  color:var(--text-1);
+  background:rgba(0,0,0,.22);
+  font-size:.7rem;
+  font-weight:950;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.ba-content{
+  position:absolute;
+  left:20px;
+  right:20px;
+  bottom:22px;
+}
+.ba-icon{
+  width:84px;
+  height:84px;
+  display:grid;
+  place-items:center;
+  margin-bottom:18px;
+  border-radius:30px;
+  color:var(--text-2);
+  background:rgba(255,255,255,.08);
+  font-family:var(--display);
+  font-size:1.8rem;
+  font-weight:950;
+}
+.ba-panel--after .ba-icon{
+  color:var(--ink);
+  background:linear-gradient(135deg,var(--green),var(--aqua));
+  box-shadow:0 20px 60px rgba(42,245,170,.25);
+}
+.ba-content h3{
+  margin-bottom:8px;
+  font-family:var(--display);
+  font-size:1.62rem;
+  letter-spacing:-.06em;
+}
+.ba-content p{
+  color:var(--text-1);
+  line-height:1.7;
+}
+.lab-stack{
+  display:grid;
+  gap:18px;
+}
+.lab-card{
+  padding:26px;
+}
+.lab-card h3{
+  margin-bottom:10px;
+  font-family:var(--display);
+  font-size:1.55rem;
+  letter-spacing:-.055em;
+}
+.lab-card p{
+  color:var(--text-1);
+  line-height:1.72;
+}
+.niche-tabs{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:18px;
+}
+.niche-tab{
+  min-height:46px;
+  padding:0 15px;
+  border:1px solid var(--line-1);
+  border-radius:var(--radius-round);
+  color:var(--text-1);
+  background:rgba(255,255,255,.06);
+  font-weight:900;
+  transition:background .25s var(--ease),color .25s var(--ease),border-color .25s var(--ease),transform .25s var(--ease);
+}
+.niche-tab:hover,
+.niche-tab.is-active{
+  color:var(--ink);
+  background:linear-gradient(135deg,var(--green),var(--aqua));
+  border-color:transparent;
+  transform:translateY(-2px);
+}
+.niche-board{
+  display:grid;
+  grid-template-columns:.95fr 1.05fr;
+  gap:18px;
+}
+.niche-visual{
+  min-height:520px;
+  padding:26px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  background:
+    radial-gradient(circle at 18% 20%,rgba(42,245,170,.22),transparent 34%),
+    radial-gradient(circle at 88% 18%,rgba(54,231,255,.16),transparent 32%),
+    linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.045));
+}
+.niche-visual__logo{
+  width:98px;
+  height:98px;
+  display:grid;
+  place-items:center;
+  border-radius:32px;
+  color:var(--ink);
+  background:linear-gradient(135deg,var(--green),var(--aqua));
+  box-shadow:0 24px 70px rgba(42,245,170,.22);
+  font-family:var(--display);
+  font-size:1.65rem;
+  font-weight:950;
+  letter-spacing:-.08em;
+}
+.niche-visual__bottom h3{
+  max-width:430px;
+  margin-bottom:12px;
+  font-family:var(--display);
+  font-size:clamp(2.2rem,4vw,4.2rem);
+  line-height:.95;
+  letter-spacing:-.075em;
+}
+.niche-visual__bottom p{
+  max-width:430px;
+  color:var(--text-1);
+  line-height:1.72;
+}
+.niche-details{
+  display:grid;
+  gap:18px;
+}
+.niche-list{
+  display:grid;
+  gap:12px;
+}
+.niche-row{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:12px;
+  padding:17px;
+  border:1px solid var(--line-1);
+  border-radius:24px;
+  background:rgba(255,255,255,.055);
+}
+.niche-row span{
+  width:38px;
+  height:38px;
+  display:grid;
+  place-items:center;
+  border-radius:14px;
+  color:var(--green);
+  background:rgba(42,245,170,.1);
+  font-weight:950;
+}
+.niche-row strong{
+  display:block;
+  margin-bottom:5px;
+}
+.niche-row p{
+  color:var(--text-1);
+  line-height:1.55;
+  font-size:.92rem;
+}
+.project-card{
+  transition:transform .35s var(--ease),border-color .35s var(--ease),box-shadow .35s var(--ease);
+}
+.project-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 30px 90px rgba(0,0,0,.28);
+}
+.project-art{
+  position:relative;
+  height:238px;
+  padding:18px;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 28% 24%,rgba(42,245,170,.26),transparent 30%),
+    radial-gradient(circle at 72% 35%,rgba(54,231,255,.2),transparent 28%),
+    linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,.035));
+}
+.project-art::before{
+  content:"";
+  position:absolute;
+  left:18px;
+  right:18px;
+  bottom:18px;
+  height:80px;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:23px;
+  background:rgba(0,0,0,.24);
+}
+.project-art::after{
+  content:"";
+  position:absolute;
+  right:26px;
+  top:26px;
+  width:88px;
+  height:88px;
+  border-radius:29px;
+  background:linear-gradient(135deg,var(--green),var(--aqua));
+  box-shadow:0 18px 58px rgba(42,245,170,.24);
+}
+.project-art__lines{
+  position:absolute;
+  left:34px;
+  right:140px;
+  bottom:42px;
+  z-index:2;
+  display:grid;
+  gap:9px;
+}
+.project-art__lines i{
+  display:block;
+  height:9px;
+  border-radius:var(--radius-round);
+  background:rgba(255,255,255,.22);
+}
+.project-art__lines i:nth-child(2){
+  width:72%;
+}
+.project-body{
+  padding:22px;
+}
+.project-body span{
+  color:var(--green);
+  font-size:.75rem;
+  font-weight:950;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+.project-body h3{
+  margin:10px 0;
+  font-size:1.35rem;
+}
+.project-body p{
+  color:var(--text-1);
+  line-height:1.65;
+}
+.process-wrap{
+  position:relative;
+}
+.process-line{
+  position:absolute;
+  left:50%;
+  top:0;
+  bottom:0;
+  width:1px;
+  background:linear-gradient(transparent,var(--line-2),transparent);
+}
+.steps{
+  position:relative;
+  z-index:2;
+  display:grid;
+  gap:18px;
+}
+.process-card{
+  width:min(560px,100%);
+  padding:24px;
+  border:1px solid var(--line-1);
+  border-radius:var(--radius-lg);
+  background:rgba(255,255,255,.07);
+  backdrop-filter:blur(16px);
+  box-shadow:var(--shadow-soft);
+}
+.process-card:nth-child(even){
+  margin-left:auto;
+}
+.process-number{
+  width:46px;
+  height:46px;
+  display:grid;
+  place-items:center;
+  margin-bottom:15px;
+  border-radius:17px;
+  color:var(--ink);
+  background:linear-gradient(135deg,var(--green),var(--aqua));
+  font-weight:950;
+}
+.process-card h3{
+  margin-bottom:8px;
+  font-size:1.25rem;
+}
+.process-card p{
+  color:var(--text-1);
+  line-height:1.66;
+}
+.command-grid{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:18px;
+}
+.dashboard{
+  padding:24px;
+}
+.dashboard__top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  margin-bottom:18px;
+  padding:10px 10px 18px;
+  border-bottom:1px solid var(--line-1);
+}
+.dashboard__top h3{
+  margin:0;
+  font-family:var(--display);
+  letter-spacing:-.05em;
+}
+.status{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  color:var(--green);
+  font-size:.78rem;
+  font-weight:950;
+}
+.status::before{
+  content:"";
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:currentColor;
+  box-shadow:0 0 16px currentColor;
+}
+.dashboard__metrics{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-bottom:14px;
+}
+.metric-card{
+  padding:16px;
+  border:1px solid var(--line-1);
+  border-radius:20px;
+  background:rgba(255,255,255,.06);
+}
+.metric-card strong{
+  display:block;
+  margin-bottom:4px;
+  font-size:1.58rem;
+  letter-spacing:-.06em;
+}
+.metric-card span,
+.order-row span{
+  color:var(--text-2);
+  font-size:.8rem;
+}
+.order-list{
+  display:grid;
+  gap:10px;
+}
+.order-row{
+  display:grid;
+  grid-template-columns:1fr auto;
+  align-items:center;
+  gap:16px;
+  padding:14px;
+  border:1px solid var(--line-1);
+  border-radius:20px;
+  background:rgba(255,255,255,.055);
+}
+.order-row strong{
+  display:block;
+  margin-bottom:5px;
+}
+.pill{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:30px;
+  padding:0 10px;
+  border:1px solid rgba(42,245,170,.22);
+  border-radius:var(--radius-round);
+  color:var(--green);
+  background:rgba(42,245,170,.12);
+  font-size:.73rem;
+  font-weight:950;
+  white-space:nowrap;
+}
+.quote-panel{
+  display:grid;
+  grid-template-columns:1.08fr .92fr;
+  gap:18px;
+  align-items:start;
+}
+.quote-card{
+  padding:26px;
+}
+.form-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+.field{
+  display:grid;
+  gap:8px;
+}
+.field--full{
+  grid-column:1/-1;
+}
+.field label{
+  color:var(--text-1);
+  font-size:.85rem;
+  font-weight:850;
+}
+.input,
+.select,
+.textarea{
+  width:100%;
+  border:1px solid var(--line-1);
+  border-radius:18px;
+  background:rgba(255,255,255,.065);
+  color:var(--text-0);
+  outline:none;
+  transition:border-color .25s var(--ease),box-shadow .25s var(--ease),background .25s var(--ease);
+}
+.input,
+.select{
+  min-height:51px;
+  padding:0 15px;
+}
+.textarea{
+  min-height:126px;
+  padding:14px 15px;
+  resize:vertical;
+}
+.select option{
+  color:white;
+  background:#07120f;
+}
+.input:focus,
+.select:focus,
+.textarea:focus{
+  border-color:rgba(42,245,170,.42);
+  background:rgba(255,255,255,.09);
+  box-shadow:0 0 0 5px rgba(42,245,170,.08);
+}
+.form-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:18px;
+}
+.quote-result{
+  display:none;
+  margin-top:18px;
+  padding:16px;
+  border:1px solid rgba(42,245,170,.22);
+  border-radius:20px;
+  background:rgba(42,245,170,.08);
+  color:var(--text-1);
+  line-height:1.65;
+}
+.quote-result.is-active{
+  display:block;
+}
+.quote-result a{
+  color:var(--green);
+  font-weight:950;
+}
+.quote-side{
+  display:grid;
+  gap:18px;
+}
+.payment-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+.payment-card{
+  min-height:126px;
+  padding:18px;
+  border:1px solid var(--line-1);
+  border-radius:24px;
+  background:rgba(255,255,255,.055);
+}
+.payment-card strong{
+  display:block;
+  margin-bottom:7px;
+}
+.payment-card span{
+  color:var(--text-2);
+  font-size:.86rem;
+  line-height:1.48;
+}
+.summary-box{
+  padding:24px;
+}
+.summary-box h3{
+  margin-bottom:10px;
+  font-family:var(--display);
+  letter-spacing:-.05em;
+}
+.summary-box p{
+  color:var(--text-1);
+  line-height:1.72;
+}
+.summary-list{
+  display:grid;
+  gap:9px;
+  margin-top:16px;
+}
+.summary-list li{
+  display:flex;
+  gap:9px;
+  color:var(--text-1);
+  line-height:1.45;
+}
+.summary-list .icon{
+  margin-top:2px;
+  color:var(--green);
+  stroke-width:3;
+}
+.faq-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+.faq-card{
+  border:1px solid var(--line-1);
+  border-radius:25px;
+  background:rgba(255,255,255,.06);
+  overflow:hidden;
+}
+.faq-q{
+  width:100%;
+  min-height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  padding:20px;
+  color:var(--text-0);
+  background:transparent;
+  text-align:left;
+  font-weight:950;
+}
+.faq-plus{
+  width:30px;
+  height:30px;
+  display:grid;
+  place-items:center;
+  flex:0 0 auto;
+  border-radius:50%;
+  color:var(--green);
+  background:rgba(42,245,170,.11);
+  transition:transform .25s var(--ease);
+}
+.faq-a{
+  display:grid;
+  grid-template-rows:0fr;
+  transition:grid-template-rows .32s var(--ease);
+}
+.faq-a > div{
+  overflow:hidden;
+}
+.faq-a p{
+  padding:0 20px 20px;
+  color:var(--text-1);
+  line-height:1.72;
+}
+.faq-card.is-open .faq-a{
+  grid-template-rows:1fr;
+}
+.faq-card.is-open .faq-plus{
+  transform:rotate(45deg);
+}
+.final-cta{
+  position:relative;
+  overflow:hidden;
+  padding:80px 24px;
+  border:1px solid rgba(42,245,170,.24);
+  border-radius:48px;
+  background:
+    radial-gradient(circle at 50% 0,rgba(42,245,170,.23),transparent 36%),
+    radial-gradient(circle at 84% 34%,rgba(54,231,255,.14),transparent 34%),
+    linear-gradient(145deg,rgba(255,255,255,.11),rgba(255,255,255,.04));
+  box-shadow:var(--shadow-deep);
+  text-align:center;
+}
+.final-cta h2{
+  max-width:880px;
+  margin:0 auto 18px;
+  font-family:var(--display);
+  font-size:clamp(2.45rem,5.2vw,5.35rem);
+  line-height:.91;
+  letter-spacing:-.075em;
+}
+.final-cta p{
+  max-width:680px;
+  margin:0 auto 28px;
+  color:var(--text-1);
+  font-size:1.05rem;
+  line-height:1.75;
+}
+.footer{
+  padding:62px 0 34px;
+  border-top:1px solid var(--line-1);
+  background:rgba(0,0,0,.12);
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.3fr repeat(3,1fr);
+  gap:28px;
+  margin-bottom:34px;
+}
+.footer p{
+  max-width:370px;
+  margin-top:16px;
+  color:var(--text-1);
+  line-height:1.72;
+}
+.footer h4{
+  margin:0 0 14px;
+  font-family:var(--display);
+  letter-spacing:-.03em;
+}
+.footer a:not(.brand){
+  display:block;
+  margin:10px 0;
+  color:var(--text-1);
+  transition:color .25s var(--ease),transform .25s var(--ease);
+}
+.footer a:not(.brand):hover{
+  color:var(--green);
+  transform:translateX(2px);
+}
+.copyright{
+  display:flex;
+  justify-content:space-between;
+  gap:18px;
+  flex-wrap:wrap;
+  padding-top:24px;
+  border-top:1px solid var(--line-1);
+  color:var(--text-2);
+  font-size:.92rem;
+}
+.float-wa{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  z-index:900;
+  width:64px;
+  height:64px;
+  display:grid;
+  place-items:center;
+  border-radius:24px;
+  color:var(--ink);
+  background:linear-gradient(135deg,#25d366,var(--green));
+  box-shadow:0 18px 55px rgba(37,211,102,.3);
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease);
+}
+.float-wa:hover{
+  transform:translateY(-5px) scale(1.03);
+  box-shadow:0 24px 70px rgba(37,211,102,.38);
+}
+.to-top{
+  position:fixed;
+  right:22px;
+  bottom:96px;
+  z-index:890;
+  opacity:0;
+  pointer-events:none;
+  transform:translateY(10px);
+}
+.to-top.is-show{
+  opacity:1;
+  pointer-events:auto;
+  transform:none;
+}
+.reveal{
+  opacity:0;
+  transform:translateY(26px);
+  transition:opacity .72s var(--ease),transform .72s var(--ease);
+}
+.reveal.is-in{
+  opacity:1;
+  transform:none;
+}
+.reveal-left{
+  opacity:0;
+  transform:translateX(-26px);
+  transition:opacity .72s var(--ease),transform .72s var(--ease);
+}
+.reveal-right{
+  opacity:0;
+  transform:translateX(26px);
+  transition:opacity .72s var(--ease),transform .72s var(--ease);
+}
+.reveal-left.is-in,
+.reveal-right.is-in{
+  opacity:1;
+  transform:none;
+}
+@media(max-width:1120px){
+  .nav__links{
+    display:none;
+  }
+  .mobile-toggle{
+    display:grid;
+  }
+  .hero__grid{
+    grid-template-columns:1fr;
+  }
+  .hero__visual{
+    min-height:590px;
+  }
+  .grid-4,
+  .stats-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+  .grid-3{
+    grid-template-columns:repeat(2,1fr);
+  }
+  .visual-lab,
+  .niche-board,
+  .command-grid,
+  .quote-panel{
+    grid-template-columns:1fr;
+  }
+  .footer-grid{
+    grid-template-columns:1fr 1fr;
+  }
+}
+@media(max-width:760px){
+  :root{
+    --nav-h:70px;
+  }
+  .container{
+    width:min(100% - 28px,var(--container));
+  }
+  .cursor-light{
+    display:none;
+  }
+  .nav{
+    top:10px;
+  }
+  .nav__shell{
+    border-radius:23px;
+    padding:10px;
+  }
+  .brand__mark{
+    width:48px;
+    height:48px;
+    border-radius:18px;
+  }
+  .brand__text strong{
+    font-size:.95rem;
+  }
+  .brand__text span{
+    display:none;
+  }
+  .nav__actions .btn{
+    display:none;
+  }
+  .hero{
+    min-height:auto;
+    padding:122px 0 56px;
+  }
+  .hero__title{
+    font-size:clamp(3.05rem,15vw,5.15rem);
+    letter-spacing:-.08em;
+  }
+  .hero__actions .btn{
+    width:100%;
+  }
+  .hero__visual{
+    min-height:520px;
+    margin-top:18px;
+  }
+  .studio-panel{
+    inset:2% 0 6%;
+    border-radius:36px;
+    transform:none;
+  }
+  .panel-top{
+    top:18px;
+    left:18px;
+    right:18px;
+    height:62px;
+    border-radius:21px;
+  }
+  .panel-code{
+    font-size:.65rem;
+  }
+  .brand-orbit{
+    width:330px;
+    height:330px;
+    margin:-165px;
+    opacity:.64;
+  }
+  .orbit-dot{
+    width:52px;
+    height:52px;
+    border-radius:18px;
+  }
+  .hero-phone{
+    right:50%;
+    width:225px;
+    height:425px;
+    transform:translateX(50%);
+  }
+  .hero-phone{
+    animation:phoneFloatMobile 5.8s ease-in-out infinite;
+  }
+  @keyframes phoneFloatMobile{
+    50%{
+      transform:translateX(50%) translateY(-14px) rotate(2deg);
+    }
+  }
+  .card-identity,
+  .card-price,
+  .card-convert{
+    display:none;
+  }
+  .section{
+    padding:74px 0;
+  }
+  .section__head{
+    display:grid;
+    align-items:start;
+  }
+  .section__copy{
+    max-width:none;
+  }
+  .grid-2,
+  .grid-3,
+  .grid-4,
+  .stats-grid,
+  .faq-grid,
+  .payment-grid,
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+  .package-card--featured{
+    transform:none;
+  }
+  .before-after{
+    grid-template-columns:1fr;
+    min-height:auto;
+  }
+  .ba-panel{
+    min-height:310px;
+  }
+  .niche-visual{
+    min-height:420px;
+  }
+  .process-line{
+    left:21px;
+  }
+  .process-card,
+  .process-card:nth-child(even){
+    width:100%;
+    margin-left:0;
+  }
+  .dashboard__metrics{
+    grid-template-columns:1fr;
+  }
+  .order-row{
+    grid-template-columns:1fr;
+  }
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+  .copyright{
+    display:grid;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  *,
+  *::before,
+  *::after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    scroll-behavior:auto!important;
+    transition-duration:.01ms!important;
+  }
+}
+/* Utility layer: reusable spacing, borders, and responsive helpers for future sections. */
+.u-mt-0{margin-top:0px;}
+.u-mb-0{margin-bottom:0px;}
+.u-p-0{padding:0px;}
+.u-mt-1{margin-top:4px;}
+.u-mb-1{margin-bottom:4px;}
+.u-p-1{padding:4px;}
+.u-mt-2{margin-top:8px;}
+.u-mb-2{margin-bottom:8px;}
+.u-p-2{padding:8px;}
+.u-mt-3{margin-top:12px;}
+.u-mb-3{margin-bottom:12px;}
+.u-p-3{padding:12px;}
+.u-mt-4{margin-top:16px;}
+.u-mb-4{margin-bottom:16px;}
+.u-p-4{padding:16px;}
+.u-mt-5{margin-top:20px;}
+.u-mb-5{margin-bottom:20px;}
+.u-p-5{padding:20px;}
+.u-mt-6{margin-top:24px;}
+.u-mb-6{margin-bottom:24px;}
+.u-p-6{padding:24px;}
+.u-mt-7{margin-top:28px;}
+.u-mb-7{margin-bottom:28px;}
+.u-p-7{padding:28px;}
+.u-mt-8{margin-top:32px;}
+.u-mb-8{margin-bottom:32px;}
+.u-p-8{padding:32px;}
+.u-mt-9{margin-top:36px;}
+.u-mb-9{margin-bottom:36px;}
+.u-p-9{padding:36px;}
+.u-mt-10{margin-top:40px;}
+.u-mb-10{margin-bottom:40px;}
+.u-p-10{padding:40px;}
+.u-mt-11{margin-top:44px;}
+.u-mb-11{margin-bottom:44px;}
+.u-p-11{padding:44px;}
+.u-mt-12{margin-top:48px;}
+.u-mb-12{margin-bottom:48px;}
+.u-p-12{padding:48px;}
+.u-gap-1{gap:4px;}
+.u-gap-2{gap:8px;}
+.u-gap-3{gap:12px;}
+.u-gap-4{gap:16px;}
+.u-gap-5{gap:20px;}
+.u-gap-6{gap:24px;}
+.u-gap-7{gap:28px;}
+.u-gap-8{gap:32px;}
+.u-gap-9{gap:36px;}
+.u-gap-10{gap:40px;}
+.u-gap-11{gap:44px;}
+.u-gap-12{gap:48px;}
+.u-text{color:var(--text-0);}
+.u-muted{color:var(--text-1);}
+.u-soft{color:var(--text-2);}
+.u-green{color:var(--green);}
+.u-aqua{color:var(--aqua);}
+.u-gold{color:var(--gold);}
+.u-bg-glass{background:var(--surface-0);}
+.u-bg-glass-strong{background:var(--surface-2);}
+.u-bg-line{background:var(--line-1);}
+.u-bg-green-line{background:rgba(42,245,170,.3);}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <div class="site-shell">
+    <div class="noise" aria-hidden="true"></div>
+    <div class="cursor-light" id="cursorLight" aria-hidden="true"></div>
+    <div class="bg-orbs" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <svg class="icon-sprite" aria-hidden="true" focusable="false">
+      <symbol id="i-arrow" viewBox="0 0 24 24">
+        <path d="M5 12h13"/>
+        <path d="m13 6 6 6-6 6"/>
+      </symbol>
+      <symbol id="i-spark" viewBox="0 0 24 24">
+        <path d="M12 2l2.6 6.7L22 12l-7.4 3.3L12 22l-2.6-6.7L2 12l7.4-3.3L12 2Z"/>
+      </symbol>
+      <symbol id="i-brand" viewBox="0 0 24 24">
+        <path d="M4 7h16l-4 5h-3v9H8v-9H2l2-5Z"/>
+        <path d="M14 13h7l-5 8h-6l4-8Z"/>
+      </symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24">
+        <rect x="7" y="2.5" width="10" height="19" rx="3"/>
+        <path d="M10 18h4"/>
+      </symbol>
+      <symbol id="i-web" viewBox="0 0 24 24">
+        <rect x="3" y="5" width="18" height="14" rx="3"/>
+        <path d="M3 9h18"/>
+        <path d="M8 15h3"/>
+        <path d="M14 15h3"/>
+      </symbol>
+      <symbol id="i-catalog" viewBox="0 0 24 24">
+        <path d="M5 4h7a4 4 0 0 1 4 4v12c-1.2-1-2.8-1.5-5-1.5H5V4Z"/>
+        <path d="M19 4h-7a4 4 0 0 0-4 4v12c1.2-1 2.8-1.5 5-1.5h6V4Z"/>
+      </symbol>
+      <symbol id="i-box" viewBox="0 0 24 24">
+        <path d="m3 7 9-4 9 4-9 4-9-4Z"/>
+        <path d="M3 7v10l9 4 9-4V7"/>
+        <path d="M12 11v10"/>
+      </symbol>
+      <symbol id="i-check" viewBox="0 0 24 24">
+        <path d="m20 6-11 11-5-5"/>
+      </symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24">
+        <path d="M4 7h16"/>
+        <path d="M4 12h16"/>
+        <path d="M4 17h16"/>
+      </symbol>
+      <symbol id="i-x" viewBox="0 0 24 24">
+        <path d="m6 6 12 12"/>
+        <path d="m18 6-12 12"/>
+      </symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M12 2v2"/>
+        <path d="M12 20v2"/>
+        <path d="m4.93 4.93 1.41 1.41"/>
+        <path d="m17.66 17.66 1.41 1.41"/>
+        <path d="M2 12h2"/>
+        <path d="M20 12h2"/>
+        <path d="m4.93 19.07 1.41-1.41"/>
+        <path d="m17.66 6.34 1.41-1.41"/>
+      </symbol>
+      <symbol id="i-whatsapp" viewBox="0 0 24 24">
+        <path d="M12 3a9 9 0 0 0-7.82 13.45L3 21l4.68-1.23A9 9 0 1 0 12 3Z"/>
+        <path d="M9.2 8.4c-.4.4-1.1 1.7.4 4 1.6 2.5 4.1 3.7 5 4 1.1.4 2.2-.7 2.6-1.5l-2.2-1.1-1.1.8c-1.8-.7-3-1.9-3.8-3.8l.8-1.1-1.7-1.3Z"/>
+      </symbol>
+      <symbol id="i-copy" viewBox="0 0 24 24">
+        <rect x="9" y="9" width="11" height="11" rx="2"/>
+        <rect x="4" y="4" width="11" height="11" rx="2"/>
+      </symbol>
+      <symbol id="i-chart" viewBox="0 0 24 24">
+        <path d="M4 19V5"/>
+        <path d="M4 19h16"/>
+        <path d="M8 15l3-3 3 2 5-7"/>
+      </symbol>
+      <symbol id="i-up" viewBox="0 0 24 24">
+        <path d="M12 19V5"/>
+        <path d="m6 11 6-6 6 6"/>
+      </symbol>
+      <symbol id="i-bolt" viewBox="0 0 24 24">
+        <path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/>
+      </symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24">
+        <rect x="5" y="10" width="14" height="10" rx="2"/>
+        <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+      </symbol>
+      <symbol id="i-palette" viewBox="0 0 24 24">
+        <path d="M12 3a9 9 0 0 0 0 18h1.5a2 2 0 0 0 1.4-3.4c-.7-.7-.2-1.6.8-1.6H16a5 5 0 0 0 5-5c0-4.4-4-8-9-8Z"/>
+        <circle cx="7.5" cy="10" r=".7"/>
+        <circle cx="10" cy="7.5" r=".7"/>
+        <circle cx="14" cy="7.8" r=".7"/>
+        <circle cx="16.5" cy="10.5" r=".7"/>
+      </symbol>
+    </svg>
+    <header class="nav" id="top">
+      <div class="container nav__shell">
+        <a class="brand" href="#inicio" aria-label="Trópix Studio inicio">
+          <span class="brand__mark" aria-hidden="true">
+            <svg class="brand__glyph" viewBox="0 0 64 64">
+              <path d="M14 18h37l-7 9H33v24H22V27H7l7-9Z" fill="currentColor"/>
+              <path d="M35 28h16L39 51H26l9-23Z" fill="rgba(3,17,13,.72)"/>
+            </svg>
+          </span>
+          <span class="brand__text">
+            <strong>Trópix Studio</strong>
+            <span>Digital Brand Store</span>
+          </span>
+        </a>
+        <nav class="nav__links" id="navLinks" aria-label="Navegación principal">
+          <a href="#direccion">Dirección</a>
+          <a href="#servicios">Servicios</a>
+          <a href="#paquetes">Paquetes</a>
+          <a href="#portafolio">Portafolio</a>
+          <a href="#proceso">Proceso</a>
+          <a href="#cotizar">Cotizar</a>
+        </nav>
+        <div class="nav__actions">
+          <button class="icon-btn" id="themeBtn" type="button" aria-label="Cambiar tema">
+            <svg class="icon"><use href="#i-sun"></use></svg>
+          </button>
+          <a class="btn btn--primary" href="#cotizar">Cotizar ahora <svg class="icon"><use href="#i-arrow"></use></svg></a>
+          <button class="icon-btn mobile-toggle" id="menuBtn" type="button" aria-label="Abrir menú">
+            <svg class="icon" id="menuIcon"><use href="#i-menu"></use></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Menú móvil">
+      <a href="#inicio">Inicio<span>01</span></a>
+      <a href="#direccion">Dirección<span>02</span></a>
+      <a href="#servicios">Servicios<span>03</span></a>
+      <a href="#paquetes">Paquetes<span>04</span></a>
+      <a href="#portafolio">Portafolio<span>05</span></a>
+      <a href="#proceso">Proceso<span>06</span></a>
+      <a href="#cotizar">Cotizar<span>07</span></a>
+    </nav>
+    <main id="contenido">
+      <section class="hero" id="inicio">
+        <div class="container hero__grid">
+          <div class="hero__copy reveal-left">
+            <div class="badge">
+              <svg class="icon"><use href="#i-spark"></use></svg>
+              Tienda creativa para negocios que quieren verse premium
+            </div>
+            <h1 class="hero__title">
+              Diseño, web y presencia digital con <span class="gradient-text">dirección real.</span>
+            </h1>
+            <p class="hero__lead">
+              Trópix Studio convierte negocios locales en marcas nítidas: identidad visual, flyers, catálogos, landing pages y paquetes completos con estructura para vender por <strong>Instagram, WhatsApp y web.</strong>
+            </p>
+            <div class="hero__chips" aria-label="Especialidades">
+              <span class="chip"><i></i>Logos premium</span>
+              <span class="chip"><i></i>Flyers de alto impacto</span>
+              <span class="chip"><i></i>Webs rápidas</span>
+              <span class="chip"><i></i>Catálogos claros</span>
+              <span class="chip"><i></i>WhatsApp commerce</span>
+            </div>
+            <div class="hero__actions">
+              <a class="btn btn--primary" href="#paquetes">Ver paquetes <svg class="icon"><use href="#i-arrow"></use></svg></a>
+              <a class="btn btn--ghost" href="#direccion">Ver dirección visual</a>
+            </div>
+            <div class="hero__proof">
+              <div class="proof-stack" aria-hidden="true">
+                <span class="proof-avatar">B</span>
+                <span class="proof-avatar">R</span>
+                <span class="proof-avatar">T</span>
+                <span class="proof-avatar">+</span>
+              </div>
+              <span>Hecho para barberías, restaurantes, talleres, tiendas, salones y marcas personales.</span>
+            </div>
+          </div>
+          <div class="hero__visual reveal-right" aria-label="Vista previa visual de Trópix Studio">
+            <div class="studio-panel">
+              <div class="panel-top">
+                <div class="traffic"><span></span><span></span><span></span></div>
+                <div class="panel-code">Studio Commerce OS</div>
+              </div>
+            </div>
+            <div class="brand-orbit" aria-hidden="true">
+              <span class="orbit-dot">
+                <svg class="icon"><use href="#i-brand"></use></svg>
+              </span>
+              <span class="orbit-dot">
+                <svg class="icon"><use href="#i-phone"></use></svg>
+              </span>
+              <span class="orbit-dot">
+                <svg class="icon"><use href="#i-web"></use></svg>
+              </span>
+              <span class="orbit-dot">
+                <svg class="icon"><use href="#i-catalog"></use></svg>
+              </span>
+              <span class="orbit-dot">
+                <svg class="icon"><use href="#i-box"></use></svg>
+              </span>
+            </div>
+            <article class="float-card card-identity">
+              <div class="mini-mark">TX</div>
+              <h4>Identidad con carácter</h4>
+              <p>Colores, logo, piezas y sistema visual para que todo se sienta conectado.</p>
+            </article>
+            <article class="float-card card-price">
+              <div class="price-pop">$149</div>
+              <h4>Pack Negocio Pro</h4>
+              <p>El punto medio ideal: logo premium, redes y catálogo visual.</p>
+            </article>
+            <article class="float-card card-convert">
+              <h4>Confianza en segundos</h4>
+              <p>La página guía al cliente sin marearlo con texto innecesario.</p>
+              <div class="meter"><span></span></div>
+            </article>
+            <div class="hero-phone">
+              <div class="phone-screen">
+                <div class="phone-hero">
+                  <div class="phone-badge">TROPIX DROP</div>
+                  <h3>Tu negocio listo para vender</h3>
+                  <p>Una experiencia visual clara, rápida y conectada a WhatsApp.</p>
+                </div>
+                <div class="phone-list">
+                  <div class="phone-item">
+                    <div class="phone-icon"></div>
+                    <div class="phone-lines"><span></span><span></span></div>
+                  </div>
+                  <div class="phone-item">
+                    <div class="phone-icon"></div>
+                    <div class="phone-lines"><span></span><span></span></div>
+                  </div>
+                  <div class="phone-item">
+                    <div class="phone-icon"></div>
+                    <div class="phone-lines"><span></span><span></span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <div class="marquee__group">
+            <span class="marquee__item"><i></i>Logos premium</span>
+            <span class="marquee__item"><i></i>Flyers que venden</span>
+            <span class="marquee__item"><i></i>Landing pages</span>
+            <span class="marquee__item"><i></i>Catálogos digitales</span>
+            <span class="marquee__item"><i></i>Plantillas editables</span>
+            <span class="marquee__item"><i></i>WhatsApp commerce</span>
+            <span class="marquee__item"><i></i>Identidad tropical futurista</span>
+          </div>
+          <div class="marquee__group">
+            <span class="marquee__item"><i></i>Logos premium</span>
+            <span class="marquee__item"><i></i>Flyers que venden</span>
+            <span class="marquee__item"><i></i>Landing pages</span>
+            <span class="marquee__item"><i></i>Catálogos digitales</span>
+            <span class="marquee__item"><i></i>Plantillas editables</span>
+            <span class="marquee__item"><i></i>WhatsApp commerce</span>
+            <span class="marquee__item"><i></i>Identidad tropical futurista</span>
+          </div>
+        </div>
+      </div>
+      <section class="section section--tight" aria-label="Métricas de enfoque">
+        <div class="container">
+          <div class="stats-grid">
+            <article class="stat-card reveal">
+              <strong>3s</strong>
+              <span>Primer impacto diseñado para que el cliente entienda qué vendes sin leer de más.</span>
+            </article>
+            <article class="stat-card reveal">
+              <strong>360°</strong>
+              <span>Marca, redes, WhatsApp y web trabajando con una sola identidad.</span>
+            </article>
+            <article class="stat-card reveal">
+              <strong>4</strong>
+              <span>Paquetes claros para comprar sin perderse en explicaciones.</span>
+            </article>
+            <article class="stat-card reveal">
+              <strong>Nivel 2</strong>
+              <span>Base lista para crecer a pedidos, pagos, panel y descargas privadas.</span>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="direccion">
+        <div class="container">
+          <div class="section__head reveal">
+            <div>
+              <div class="kicker">Dirección visual</div>
+              <h2 class="section__title">La página no debe verse llena. Debe sentirse intencional.</h2>
+            </div>
+            <p class="section__copy">La nueva estructura elimina ruido: cada bloque tiene una función comercial, una jerarquía clara y una razón para existir.</p>
+          </div>
+          <div class="grid-4">
+            <article class="card direction-card reveal">
+              <div class="direction-card__index">01</div>
+              <div class="direction-card__icon">
+                <svg class="icon"><use href="#i-spark"></use></svg>
+              </div>
+              <h3>Impacto</h3>
+              <p>El hero explica la promesa en una frase fuerte, con visual de sistema y llamada a paquetes.</p>
+            </article>
+            <article class="card direction-card reveal">
+              <div class="direction-card__index">02</div>
+              <div class="direction-card__icon">
+                <svg class="icon"><use href="#i-lock"></use></svg>
+              </div>
+              <h3>Confianza</h3>
+              <p>Los servicios se muestran como productos con precio desde, entrega y resultado claro.</p>
+            </article>
+            <article class="card direction-card reveal">
+              <div class="direction-card__index">03</div>
+              <div class="direction-card__icon">
+                <svg class="icon"><use href="#i-palette"></use></svg>
+              </div>
+              <h3>Diferencia</h3>
+              <p>La identidad mezcla tropical, tecnología, glassmorphism y contraste sin parecer plantilla.</p>
+            </article>
+            <article class="card direction-card reveal">
+              <div class="direction-card__index">04</div>
+              <div class="direction-card__icon">
+                <svg class="icon"><use href="#i-chart"></use></svg>
+              </div>
+              <h3>Conversión</h3>
+              <p>El formulario prepara un mensaje de WhatsApp ordenado, guardado y listo para vender.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="servicios">
+        <div class="container">
+          <div class="section__head reveal">
+            <div>
+              <div class="kicker">Servicios productizados</div>
+              <h2 class="section__title">No vendes diseños sueltos. Vendes presencia visual que da confianza.</h2>
+            </div>
+            <p class="section__copy">Cada servicio tiene resultado, precio desde, tiempo estimado y CTA directo. Así se siente como tienda, no como portafolio vacío.</p>
+          </div>
+          <div class="grid-3">
+            <article class="card service-card reveal">
+              <div class="service-card__top">
+                <div class="service-icon">
+                  <svg class="icon"><use href="#i-brand"></use></svg>
+                </div>
+                <span class="service-tag">Marca</span>
+              </div>
+              <h3>Identidad visual</h3>
+              <p>Logos memorables, paleta, variaciones, uso correcto y piezas base para WhatsApp, redes y web.</p>
+              <div class="service-meta">
+                <span><strong>Desde $45</strong></span>
+                <span>2-5 días</span>
+              </div>
+            </article>
+            <article class="card service-card reveal">
+              <div class="service-card__top">
+                <div class="service-icon">
+                  <svg class="icon"><use href="#i-phone"></use></svg>
+                </div>
+                <span class="service-tag">Social</span>
+              </div>
+              <h3>Flyers y redes</h3>
+              <p>Posts, stories, promociones, carruseles y anuncios con estética consistente y enfoque de venta.</p>
+              <div class="service-meta">
+                <span><strong>Desde $15</strong></span>
+                <span>24-72h</span>
+              </div>
+            </article>
+            <article class="card service-card reveal">
+              <div class="service-card__top">
+                <div class="service-icon">
+                  <svg class="icon"><use href="#i-web"></use></svg>
+                </div>
+                <span class="service-tag">Web</span>
+              </div>
+              <h3>Landing pages</h3>
+              <p>Páginas rápidas, responsive, nítidas y pensadas para convertir visitas en mensajes por WhatsApp.</p>
+              <div class="service-meta">
+                <span><strong>Desde $180</strong></span>
+                <span>5-10 días</span>
+              </div>
+            </article>
+            <article class="card service-card reveal">
+              <div class="service-card__top">
+                <div class="service-icon">
+                  <svg class="icon"><use href="#i-catalog"></use></svg>
+                </div>
+                <span class="service-tag">PDF</span>
+              </div>
+              <h3>Catálogos digitales</h3>
+              <p>Menús, listas de servicios o productos organizados para enviar, vender y cotizar más fácil.</p>
+              <div class="service-meta">
+                <span><strong>Desde $60</strong></span>
+                <span>3-6 días</span>
+              </div>
+            </article>
+            <article class="card service-card reveal">
+              <div class="service-card__top">
+                <div class="service-icon">
+                  <svg class="icon"><use href="#i-copy"></use></svg>
+                </div>
+                <span class="service-tag">Kit</span>
+              </div>
+              <h3>Plantillas editables</h3>
+              <p>Kits para Canva/PSD con estructura visual para que el negocio publique sin perder identidad.</p>
+              <div class="service-meta">
+                <span><strong>Desde $35</strong></span>
+                <span>2-4 días</span>
+              </div>
+            </article>
+            <article class="card service-card reveal">
+              <div class="service-card__top">
+                <div class="service-icon">
+                  <svg class="icon"><use href="#i-box"></use></svg>
+                </div>
+                <span class="service-tag">Sistema</span>
+              </div>
+              <h3>Packs completos</h3>
+              <p>Marca, redes, catálogo y landing conectados en una presencia digital coherente.</p>
+              <div class="service-meta">
+                <span><strong>Desde $120</strong></span>
+                <span>5-14 días</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="paquetes">
+        <div class="container">
+          <div class="section__head reveal">
+            <div>
+              <div class="kicker">Paquetes listos para vender</div>
+              <h2 class="section__title">Ofertas claras, visuales y fáciles de elegir.</h2>
+            </div>
+            <p class="section__copy">La estructura empuja hacia el plan recomendado sin confundir: buen valor, buen margen y resultado completo.</p>
+          </div>
+          <div class="grid-4">
+            <article class="card package-card reveal">
+              <h3>Pack Emprendedor</h3>
+              <div class="package-price">$49<small> desde</small></div>
+              <p>Para arrancar con una imagen limpia y confiable.</p>
+              <ul class="feature-list">
+                <li>
+                  <svg class="icon"><use href="#i-check"></use></svg>
+                  <span>Logo básico</span>
+                </li>
+                <li>
+                  <svg class="icon"><use href="#i-check"></use></svg>
+                  <span>3 posts para Instagram</span>
+                </li>
+                <li>
+                  <svg class="icon"><use href="#i-check"></use></svg>
+                  <span>Portada de WhatsApp</span>
+                </li>
+                <li>
+                  <svg class="icon"><use href="#i-check"></use></svg>
+                  <span>Mini catálogo visual</span>
+                </li>
+                <li>
+                  <svg class="icon"><use href="#i-check"></use></svg>
+                  <span>1 ronda de cambios</span>
+                </li>
+              </ul>
+              <div class="package-delivery">
+                <span>Entrega</span>
+                <strong>3-5 días</strong>
+              </div>
+              <a href="#cotizar" class="btn btn--dark btn--wide" data-plan="Pack Emprendedor">Elegir paquete</a>
+            </article>
+            <article class="card package-card package-card--featured reveal">
+              <div class="ribbon">Recomendado</div>
+              <h3>Pack Negocio Pro</h3>
+              <div class="package-price">$149<small> desde</small></div>
+              <p>Para negocios activos que quieren verse más serios y vender mejor.</p>
+              <ul class="feature-list">
+                <li>
+                  <svg class="icon"><use href="#i-check"></use></svg>
+                  <span>Logo premium</span>
+                </li>
+                <li>
+                  <svg class="icon"><use href="#i-check"></use></svg>
+                  <span>6 posts para Instagram</span>
+                </li>
+                <li>
+                  <svg class="icon"><use href="#i-check"></use></svg>
+                  <span>3 stories</span>
+                </li>
+                <li>
+                  <svg class="icon"><use href="#i-check"></use></svg>
+                  <span>Catálogo PDF</span>
+                </li>
+                <li>
+                  <svg class="icon"><use href="#i-check"></use></svg>
+                  <span>Paleta de colores</span>
+                </li>
+                <li>
+                  <svg class="icon"><use href="#i-check"></use></svg>
+                  <span>2 rondas de cambios</span>
+                </li>
+              </ul>
+              <div class="package-delivery">
+                <span>Entrega</span>
+                <strong>5-8 días</strong>
+              </div>
+              <a href="#cotizar" class="btn btn--primary btn--wide" data-plan="Pack Negocio Pro">Elegir paquete</a>
+            </article>
+            <article class="card package-card reveal">
+              <h3>Pack Presencia Digital</h3>
+              <div class="package-price">$290<small> desde</small></div>
+              <p>Para marcas que necesitan redes, WhatsApp y landing lista para clientes.</p>
+              <ul class="feature-list">
+                <li>
+                  <svg class="icon"><use href="#i-check"></use></svg>
+                  <span>Logo profesional</span>
+                </li>
+                <li>
+                  <svg class="icon"><use href="#i-check"></use></svg>
+                  <span>Landing responsive</span>
+                </li>
+                <li>
+                  <svg class="icon"><use href="#i-check"></use></svg>
+                  <span>Botón directo a WhatsApp</span>
+                </li>
+                <li>
+                  <svg class="icon"><use href="#i-check"></use></svg>
+                  <span>6 piezas para redes</span>
+                </li>
+                <li>
+                  <svg class="icon"><use href="#i-check"></use></svg>
+                  <span>Formulario de contacto</span>
+                </li>
+              </ul>
+              <div class="package-delivery">
+                <span>Entrega</span>
+                <strong>7-12 días</strong>
+              </div>
+              <a href="#cotizar" class="btn btn--dark btn--wide" data-plan="Pack Presencia Digital">Elegir paquete</a>
+            </article>
+            <article class="card package-card reveal">
+              <h3>Pack Marca Completa</h3>
+              <div class="package-price">$520+<small> desde</small></div>
+              <p>Para negocios que quieren presencia digital de alto impacto desde cero.</p>
+              <ul class="feature-list">
+                <li>
+                  <svg class="icon"><use href="#i-check"></use></svg>
+                  <span>Identidad visual completa</span>
+                </li>
+                <li>
+                  <svg class="icon"><use href="#i-check"></use></svg>
+                  <span>Web profesional</span>
+                </li>
+                <li>
+                  <svg class="icon"><use href="#i-check"></use></svg>
+                  <span>Catálogo de servicios</span>
+                </li>
+                <li>
+                  <svg class="icon"><use href="#i-check"></use></svg>
+                  <span>Plantillas editables</span>
+                </li>
+                <li>
+                  <svg class="icon"><use href="#i-check"></use></svg>
+                  <span>Asesoría visual</span>
+                </li>
+              </ul>
+              <div class="package-delivery">
+                <span>Entrega</span>
+                <strong>10-18 días</strong>
+              </div>
+              <a href="#cotizar" class="btn btn--dark btn--wide" data-plan="Pack Marca Completa">Elegir paquete</a>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="comparativa">
+        <div class="container">
+          <div class="section__head reveal">
+            <div>
+              <div class="kicker">Antes y después</div>
+              <h2 class="section__title">La diferencia entre verse improvisado y verse como una marca seria.</h2>
+            </div>
+            <p class="section__copy">El cliente no compra “un archivo”; compra la sensación de que su negocio se ve confiable, actual y listo para vender.</p>
+          </div>
+          <div class="visual-lab">
+            <div class="before-after reveal-left">
+              <article class="ba-panel ba-panel">
+                <span class="ba-label">Antes</span>
+                <div class="ba-content">
+                  <div class="ba-icon">?</div>
+                  <h3>Negocio sin sistema</h3>
+                  <p>Colores diferentes, posts sin orden, logo débil y poca confianza visual.</p>
+                </div>
+              </article>
+              <article class="ba-panel ba-panel--after">
+                <span class="ba-label">Después</span>
+                <div class="ba-content">
+                  <div class="ba-icon">TX</div>
+                  <h3>Marca con identidad</h3>
+                  <p>Logo nítido, paleta definida, redes coherentes, catálogo y contacto directo.</p>
+                </div>
+              </article>
+            </div>
+            <div class="lab-stack reveal-right">
+              <article class="card lab-card">
+                <h3>Visuales pensados para cerrar ventas</h3>
+                <p>La estructura conecta cada pieza: el logo aparece en flyers, los flyers llevan al WhatsApp, el WhatsApp confirma el pedido y la landing sostiene la confianza.</p>
+              </article>
+              <article class="card lab-card">
+                <h3>Diseño limpio, tropical y tecnológico</h3>
+                <p>La identidad usa brillos, sombras, gradientes y glassmorphism con control. Se siente joven, pero serio.</p>
+              </article>
+              <article class="card lab-card">
+                <h3>Texto directo, no relleno</h3>
+                <p>Cada bloque responde una duda: qué haces, cuánto cuesta, para quién es, cómo se compra y por qué confiar.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="nichos">
+        <div class="container">
+          <div class="section__head reveal">
+            <div>
+              <div class="kicker">Nichos reales</div>
+              <h2 class="section__title">La página le habla a negocios específicos, no a todo el mundo al mismo tiempo.</h2>
+            </div>
+            <p class="section__copy">Esto le da dirección: cada cliente se reconoce rápido y entiende cómo Trópix puede ayudarle.</p>
+          </div>
+          <div class="niche-tabs reveal" role="tablist" aria-label="Tipos de negocio">
+            <button class="niche-tab is-active" type="button" data-niche="barberia">Barbería urbana</button>
+            <button class="niche-tab" type="button" data-niche="restaurante">Restaurante local</button>
+            <button class="niche-tab" type="button" data-niche="taller">Taller técnico</button>
+            <button class="niche-tab" type="button" data-niche="salon">Salón de belleza</button>
+            <button class="niche-tab" type="button" data-niche="tienda">Tienda de ropa</button>
+          </div>
+          <div class="niche-board">
+            <article class="card niche-visual reveal-left">
+              <div class="niche-visual__logo" id="nicheMark">BRB</div>
+              <div class="niche-visual__bottom">
+                <h3 id="nicheTitle">Barbería urbana</h3>
+                <p id="nicheDesc">Reservas, promos, cortes y una marca con carácter masculino moderno.</p>
+              </div>
+            </article>
+            <div class="niche-details reveal-right">
+              <article class="card lab-card">
+                <h3>Qué recibe el cliente</h3>
+                <p>Una solución empaquetada para su tipo de negocio, presentada con un lenguaje que siente cercano y profesional.</p>
+              </article>
+              <div class="niche-list" id="nicheList">
+                <div class="niche-row">
+                  <span>1</span>
+                  <div>
+                    <strong>Logo con actitud</strong>
+                    <p>Elemento incluido dentro de un paquete visual para vender mejor.</p>
+                  </div>
+                </div>
+                <div class="niche-row">
+                  <span>2</span>
+                  <div>
+                    <strong>Flyers para cortes y combos</strong>
+                    <p>Elemento incluido dentro de un paquete visual para vender mejor.</p>
+                  </div>
+                </div>
+                <div class="niche-row">
+                  <span>3</span>
+                  <div>
+                    <strong>Landing para reservas por WhatsApp</strong>
+                    <p>Elemento incluido dentro de un paquete visual para vender mejor.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="portafolio">
+        <div class="container">
+          <div class="section__head reveal">
+            <div>
+              <div class="kicker">Portafolio conceptual</div>
+              <h2 class="section__title">Casos visuales que muestran nivel antes de que el cliente pregunte.</h2>
+            </div>
+            <p class="section__copy">Estos bloques no son decoración: funcionan como prueba de que puedes adaptar la estética a diferentes mercados.</p>
+          </div>
+          <div class="grid-3">
+            <article class="card project-card reveal">
+              <div class="project-art">
+                <div class="project-art__lines"><i></i><i></i></div>
+              </div>
+              <div class="project-body">
+                <span>Identidad + flyers</span>
+                <h3>Barbería urbana</h3>
+                <p>Cortes, reservas y promociones con carácter visual.</p>
+              </div>
+            </article>
+            <article class="card project-card reveal">
+              <div class="project-art">
+                <div class="project-art__lines"><i></i><i></i></div>
+              </div>
+              <div class="project-body">
+                <span>Menú + Instagram</span>
+                <h3>Restaurante local</h3>
+                <p>Menú digital, stories de ofertas y posts semanales.</p>
+              </div>
+            </article>
+            <article class="card project-card reveal">
+              <div class="project-art">
+                <div class="project-art__lines"><i></i><i></i></div>
+              </div>
+              <div class="project-body">
+                <span>Web + catálogo</span>
+                <h3>Taller electromecánico</h3>
+                <p>Servicios técnicos presentados con confianza y orden.</p>
+              </div>
+            </article>
+            <article class="card project-card reveal">
+              <div class="project-art">
+                <div class="project-art__lines"><i></i><i></i></div>
+              </div>
+              <div class="project-body">
+                <span>Marca + plantillas</span>
+                <h3>Salón de belleza</h3>
+                <p>Estética elegante, colores suaves y contenido reutilizable.</p>
+              </div>
+            </article>
+            <article class="card project-card reveal">
+              <div class="project-art">
+                <div class="project-art__lines"><i></i><i></i></div>
+              </div>
+              <div class="project-body">
+                <span>Landing + anuncios</span>
+                <h3>Car wash premium</h3>
+                <p>Página rápida con CTA para reservas por WhatsApp.</p>
+              </div>
+            </article>
+            <article class="card project-card reveal">
+              <div class="project-art">
+                <div class="project-art__lines"><i></i><i></i></div>
+              </div>
+              <div class="project-body">
+                <span>Catálogo + redes</span>
+                <h3>Tienda de ropa</h3>
+                <p>Colecciones visuales con enfoque en venta por chat.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="proceso">
+        <div class="container">
+          <div class="section__head reveal">
+            <div>
+              <div class="kicker">Proceso simple</div>
+              <h2 class="section__title">Comprar un servicio creativo debe sentirse fácil, no confuso.</h2>
+            </div>
+            <p class="section__copy">El flujo combina página + WhatsApp para cerrar ventas con trato humano, sin carrito complicado ni pasos innecesarios.</p>
+          </div>
+          <div class="process-wrap">
+            <div class="process-line" aria-hidden="true"></div>
+            <div class="steps">
+              <article class="process-card reveal">
+                <div class="process-number">1</div>
+                <h3>El cliente elige</h3>
+                <p>Selecciona un servicio o paquete según la etapa de su negocio.</p>
+              </article>
+              <article class="process-card reveal">
+                <div class="process-number">2</div>
+                <h3>Llena el formulario</h3>
+                <p>Envía nombre, tipo de negocio, colores, presupuesto y fecha ideal.</p>
+              </article>
+              <article class="process-card reveal">
+                <div class="process-number">3</div>
+                <h3>Se confirma por WhatsApp</h3>
+                <p>La web genera un mensaje ordenado para cerrar detalles rápido.</p>
+              </article>
+              <article class="process-card reveal">
+                <div class="process-number">4</div>
+                <h3>Pago o adelanto</h3>
+                <p>Yappy, transferencia o pago manual validado antes de iniciar.</p>
+              </article>
+              <article class="process-card reveal">
+                <div class="process-number">5</div>
+                <h3>Diseño y revisión</h3>
+                <p>Se entregan propuestas, rondas de cambios y piezas finales.</p>
+              </article>
+              <article class="process-card reveal">
+                <div class="process-number">6</div>
+                <h3>Entrega profesional</h3>
+                <p>Archivos organizados para redes, WhatsApp, impresión o web.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="nivel2">
+        <div class="container">
+          <div class="section__head reveal">
+            <div>
+              <div class="kicker">Segundo nivel</div>
+              <h2 class="section__title">Una tienda que puede evolucionar a sistema de pedidos.</h2>
+            </div>
+            <p class="section__copy">La web inicia como tienda de servicios, pero queda preparada conceptualmente para panel, pagos, estados y descargas.</p>
+          </div>
+          <div class="command-grid">
+            <article class="card dashboard reveal-left">
+              <div class="dashboard__top">
+                <h3>Studio Command</h3>
+                <span class="status">Activo</span>
+              </div>
+              <div class="dashboard__metrics">
+                <div class="metric-card">
+                  <strong>18</strong>
+                  <span>leads simulados</span>
+                </div>
+                <div class="metric-card">
+                  <strong>$1.2K</strong>
+                  <span>ingreso potencial</span>
+                </div>
+                <div class="metric-card">
+                  <strong>74%</strong>
+                  <span>interés en packs</span>
+                </div>
+              </div>
+              <div class="order-list">
+                <div class="order-row">
+                  <div>
+                    <strong>Pack Negocio Pro</strong>
+                    <span>Barbería urbana · pendiente de pago</span>
+                  </div>
+                  <span class="pill">Cotizado</span>
+                </div>
+                <div class="order-row">
+                  <div>
+                    <strong>Landing Page</strong>
+                    <span>Restaurante · contenido recibido</span>
+                  </div>
+                  <span class="pill">Diseño</span>
+                </div>
+                <div class="order-row">
+                  <div>
+                    <strong>Logo Premium</strong>
+                    <span>Salón de belleza · revisión 1</span>
+                  </div>
+                  <span class="pill">Entrega</span>
+                </div>
+              </div>
+            </article>
+            <article class="card lab-card reveal-right">
+              <h3>Funciones futuras ya pensadas</h3>
+              <p>Panel admin, estados de pedidos, historial de clientes, pagos, descargas privadas, plantillas vendibles, base de leads y métricas.</p>
+              <br>
+              <p>Eso hace que Trópix no parezca un experimento, sino una marca digital con proceso, lenguaje y futuro.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="cotizar">
+        <div class="container">
+          <div class="section__head reveal">
+            <div>
+              <div class="kicker">Cotización inteligente</div>
+              <h2 class="section__title">El formulario convierte la idea del cliente en un mensaje listo para WhatsApp.</h2>
+            </div>
+            <p class="section__copy">Rellena los datos y la página prepara una cotización ordenada. También guarda el último lead en localStorage.</p>
+          </div>
+          <div class="quote-panel">
+            <article class="card quote-card reveal-left">
+              <form id="quoteForm">
+                <div class="form-grid">
+                  <div class="field">
+                    <label for="nombre">Nombre</label>
+                    <input class="input" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                  </div>
+                  <div class="field">
+                    <label for="telefono">WhatsApp</label>
+                    <input class="input" id="telefono" name="telefono" placeholder="+507 6000-0000" required>
+                  </div>
+                  <div class="field">
+                    <label for="negocio">Nombre del negocio</label>
+                    <input class="input" id="negocio" name="negocio" placeholder="Ej: Barbería El Patrón" required>
+                  </div>
+                  <div class="field">
+                    <label for="tipo">Tipo de negocio</label>
+                    <input class="input" id="tipo" name="tipo" placeholder="Barbería, restaurante, tienda..." required>
+                  </div>
+                  <div class="field">
+                    <label for="servicio">Servicio deseado</label>
+                    <select class="select" id="servicio" name="servicio">
+                      <option>Pack Negocio Pro</option>
+                      <option>Pack Emprendedor</option>
+                      <option>Pack Presencia Digital</option>
+                      <option>Pack Marca Completa</option>
+                      <option>Logo profesional</option>
+                      <option>Flyers para Instagram</option>
+                      <option>Landing page</option>
+                      <option>Catálogo digital</option>
+                      <option>Plantillas editables</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="presupuesto">Presupuesto aproximado</label>
+                    <select class="select" id="presupuesto" name="presupuesto">
+                      <option>$45 - $80</option>
+                      <option>$120 - $180</option>
+                      <option>$220 - $350</option>
+                      <option>$400 - $700+</option>
+                      <option>Quiero cotizar</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="colores">Colores preferidos</label>
+                    <input class="input" id="colores" name="colores" placeholder="Verde, negro, dorado...">
+                  </div>
+                  <div class="field">
+                    <label for="fecha">Fecha ideal</label>
+                    <input class="input" id="fecha" name="fecha" placeholder="Ej: Esta semana">
+                  </div>
+                  <div class="field field--full">
+                    <label for="mensaje">Detalles del proyecto</label>
+                    <textarea class="textarea" id="mensaje" name="mensaje" placeholder="Cuéntanos qué necesitas, referencias, estilo, redes sociales o ideas importantes..."></textarea>
+                  </div>
+                </div>
+                <div class="form-actions">
+                  <button class="btn btn--primary" type="submit">Preparar WhatsApp</button>
+                  <button class="btn btn--dark" type="button" id="copyQuote">Copiar resumen</button>
+                  <button class="btn btn--ghost" type="reset">Limpiar</button>
+                </div>
+                <div class="quote-result" id="quoteResult"></div>
+              </form>
+            </article>
+            <aside class="quote-side reveal-right">
+              <article class="card summary-box">
+                <h3>Cómo se cierra la venta</h3>
+                <p>La página no obliga al cliente a comprar a ciegas: lo guía a una conversación organizada por WhatsApp para cerrar alcance, pago y fecha.</p>
+                <ul class="summary-list">
+                  <li>
+                    <svg class="icon"><use href="#i-check"></use></svg>
+                    <span>Mensaje armado automáticamente</span>
+                  </li>
+                  <li>
+                    <svg class="icon"><use href="#i-check"></use></svg>
+                    <span>Lead guardado en el navegador</span>
+                  </li>
+                  <li>
+                    <svg class="icon"><use href="#i-check"></use></svg>
+                    <span>Estructura lista para pagos después</span>
+                  </li>
+                  <li>
+                    <svg class="icon"><use href="#i-check"></use></svg>
+                    <span>Proceso claro para evitar confusión</span>
+                  </li>
+                </ul>
+              </article>
+              <div class="payment-grid">
+                <article class="payment-card">
+                  <strong>Yappy</strong>
+                  <span>Pago local rápido para Panamá.</span>
+                </article>
+                <article class="payment-card">
+                  <strong>Transferencia</strong>
+                  <span>Confirmación manual por WhatsApp.</span>
+                </article>
+                <article class="payment-card">
+                  <strong>Adelanto</strong>
+                  <span>Inicio del proyecto con pago parcial.</span>
+                </article>
+                <article class="payment-card">
+                  <strong>Botón web</strong>
+                  <span>Estructura preparada para integrarlo después.</span>
+                </article>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="faq">
+        <div class="container">
+          <div class="section__head reveal">
+            <div>
+              <div class="kicker">Preguntas frecuentes</div>
+              <h2 class="section__title">Respuestas que eliminan dudas antes de escribir.</h2>
+            </div>
+            <p class="section__copy">El FAQ reduce fricción y hace que el cliente llegue a WhatsApp con preguntas mejores.</p>
+          </div>
+          <div class="faq-grid">
+            <article class="faq-card reveal">
+              <button class="faq-q" type="button">
+                <span>¿Esto es una tienda o una agencia?</span>
+                <span class="faq-plus">+</span>
+              </button>
+              <div class="faq-a">
+                <div>
+                  <p>Es una tienda digital de servicios. El cliente elige un servicio o paquete, llena el formulario y se termina de confirmar por WhatsApp.</p>
+                </div>
+              </div>
+            </article>
+            <article class="faq-card reveal">
+              <button class="faq-q" type="button">
+                <span>¿Puedo vender sin carrito de compra?</span>
+                <span class="faq-plus">+</span>
+              </button>
+              <div class="faq-a">
+                <div>
+                  <p>Sí. Para servicios creativos funciona mejor cotizar por WhatsApp porque cada negocio necesita detalles distintos.</p>
+                </div>
+              </div>
+            </article>
+            <article class="faq-card reveal">
+              <button class="faq-q" type="button">
+                <span>¿Cómo se manejan los pagos?</span>
+                <span class="faq-plus">+</span>
+              </button>
+              <div class="faq-a">
+                <div>
+                  <p>Puedes iniciar con Yappy, transferencia o pago manual confirmado por WhatsApp. La web deja estructura lista para integrar botones de pago.</p>
+                </div>
+              </div>
+            </article>
+            <article class="faq-card reveal">
+              <button class="faq-q" type="button">
+                <span>¿Entrego archivos editables?</span>
+                <span class="faq-plus">+</span>
+              </button>
+              <div class="faq-a">
+                <div>
+                  <p>Depende del paquete. Puedes venderlos como extra o incluirlos en los planes más altos.</p>
+                </div>
+              </div>
+            </article>
+            <article class="faq-card reveal">
+              <button class="faq-q" type="button">
+                <span>¿Cuántos cambios incluye cada proyecto?</span>
+                <span class="faq-plus">+</span>
+              </button>
+              <div class="faq-a">
+                <div>
+                  <p>Cada paquete define sus rondas. Eso evita trabajo infinito y mantiene el proceso profesional.</p>
+                </div>
+              </div>
+            </article>
+            <article class="faq-card reveal">
+              <button class="faq-q" type="button">
+                <span>¿Qué hace diferente a Trópix Studio?</span>
+                <span class="faq-plus">+</span>
+              </button>
+              <div class="faq-a">
+                <div>
+                  <p>No vende diseños sueltos; vende presencia digital completa para que un negocio se vea más confiable en redes, WhatsApp y web.</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container">
+          <div class="final-cta reveal">
+            <h2>Tu negocio no necesita verse más barato. Necesita verse más confiable.</h2>
+            <p>Trópix Studio está creado para marcas locales que quieren presentarse mejor, vender con claridad y tener una presencia digital que se sienta profesional desde el primer vistazo.</p>
+            <a class="btn btn--primary" href="#cotizar">Empezar cotización <svg class="icon"><use href="#i-arrow"></use></svg></a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <a class="brand" href="#inicio">
+              <span class="brand__mark" aria-hidden="true">
+                <svg class="brand__glyph" viewBox="0 0 64 64">
+                  <path d="M14 18h37l-7 9H33v24H22V27H7l7-9Z" fill="currentColor"/>
+                  <path d="M35 28h16L39 51H26l9-23Z" fill="rgba(3,17,13,.72)"/>
+                </svg>
+              </span>
+              <span class="brand__text"><strong>Trópix Studio</strong><span>Digital Brand Store</span></span>
+            </a>
+            <p>Diseño, web y presencia digital para negocios que quieren verse profesionales, vender mejor y destacar en redes, WhatsApp y web.</p>
+          </div>
+          <div>
+            <h4>Servicios</h4>
+            <a href="#servicios">Logos</a>
+            <a href="#servicios">Flyers</a>
+            <a href="#servicios">Webs</a>
+            <a href="#servicios">Catálogos</a>
+          </div>
+          <div>
+            <h4>Negocio</h4>
+            <a href="#paquetes">Paquetes</a>
+            <a href="#portafolio">Portafolio</a>
+            <a href="#proceso">Proceso</a>
+            <a href="#cotizar">Cotizar</a>
+          </div>
+          <div>
+            <h4>Contacto</h4>
+            <a href="https://wa.me/50760000000" target="_blank" rel="noopener">WhatsApp</a>
+            <a href="#">Instagram</a>
+            <a href="mailto:hola@tropixstudio.com">hola@tropixstudio.com</a>
+          </div>
+        </div>
+        <div class="copyright">
+          <span>© 2026 Trópix Studio — Todos los derechos reservados.</span>
+          <span>Powered by Yael Dev</span>
+        </div>
+      </div>
+    </footer>
+    <a class="float-wa" href="https://wa.me/50760000000?text=Hola%20Tr%C3%B3pix%20Studio%2C%20quiero%20cotizar%20un%20servicio%20digital%20para%20mi%20negocio." target="_blank" rel="noopener" aria-label="WhatsApp">
+      <svg class="icon"><use href="#i-whatsapp"></use></svg>
+    </a>
+    <button class="icon-btn to-top" id="toTop" type="button" aria-label="Volver arriba">
+      <svg class="icon"><use href="#i-up"></use></svg>
+    </button>
+  </div>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"ProfessionalService",
+  "name":"Trópix Studio",
+  "description":"Tienda digital premium de diseño, web, logos, flyers, catálogos y presencia digital para negocios locales.",
+  "areaServed":"Panamá",
+  "url":"https://tropixstudio.com",
+  "telephone":"+50760000000",
+  "offers":[
+    {"@type":"Offer","name":"Pack Emprendedor","price":"49","priceCurrency":"USD"},
+    {"@type":"Offer","name":"Pack Negocio Pro","price":"149","priceCurrency":"USD"},
+    {"@type":"Offer","name":"Pack Presencia Digital","price":"290","priceCurrency":"USD"},
+    {"@type":"Offer","name":"Pack Marca Completa","price":"520","priceCurrency":"USD"}
+  ]
+}
+  </script>
+  <script>
+(() => {
+  'use strict';
+
+  const WA_NUMBER = '50760000000';
+  const $ = (selector, context = document) => context.querySelector(selector);
+  const $$ = (selector, context = document) => [...context.querySelectorAll(selector)];
+
+  const root = document.documentElement;
+  const body = document.body;
+  const menuBtn = $('#menuBtn');
+  const menuIcon = $('#menuIcon use');
+  const mobileMenu = $('#mobileMenu');
+  const themeBtn = $('#themeBtn');
+  const navLinks = $('#navLinks');
+  const toTop = $('#toTop');
+  const quoteForm = $('#quoteForm');
+  const quoteResult = $('#quoteResult');
+  const copyQuote = $('#copyQuote');
+  const cursorLight = $('#cursorLight');
+
+  const storedTheme = localStorage.getItem('tropix_theme');
+  if (storedTheme === 'dark' || storedTheme === 'light') {
+    root.dataset.theme = storedTheme;
+  }
+
+  const setMenu = (open) => {
+    mobileMenu?.classList.toggle('is-open', open);
+    body.classList.toggle('lock', open);
+    menuBtn?.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    if (menuIcon) {
+      menuIcon.setAttribute('href', open ? '#i-x' : '#i-menu');
+    }
+  };
+
+  menuBtn?.addEventListener('click', () => {
+    setMenu(!mobileMenu.classList.contains('is-open'));
+  });
+
+  $$('#mobileMenu a').forEach((link) => {
+    link.addEventListener('click', () => setMenu(false));
+  });
+
+  themeBtn?.addEventListener('click', () => {
+    const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = next;
+    localStorage.setItem('tropix_theme', next);
+  });
+
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-in');
+        revealObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.14 });
+
+    $$('.reveal, .reveal-left, .reveal-right').forEach((element) => {
+      revealObserver.observe(element);
+    });
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const id = entry.target.id;
+        if (!id || !navLinks) return;
+        $$('#navLinks a').forEach((link) => {
+          link.classList.toggle('is-active', link.getAttribute('href') === `#${id}`);
+        });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+
+    $$('section[id]').forEach((section) => sectionObserver.observe(section));
+  } else {
+    $$('.reveal, .reveal-left, .reveal-right').forEach((element) => element.classList.add('is-in'));
+  }
+
+  addEventListener('scroll', () => {
+    toTop?.classList.toggle('is-show', scrollY > 700);
+  }, { passive: true });
+
+  toTop?.addEventListener('click', () => {
+    scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  $$('.faq-q').forEach((button) => {
+    button.addEventListener('click', () => {
+      const card = button.closest('.faq-card');
+      card?.classList.toggle('is-open');
+    });
+  });
+
+  $$('.package-card .btn').forEach((button) => {
+    button.addEventListener('click', () => {
+      const plan = button.dataset.plan;
+      const select = $('[name="servicio"]');
+      if (plan && select) select.value = plan;
+    });
+  });
+
+  const nicheData = {
+    barberia: {
+      mark: 'BRB',
+      title: 'Barbería urbana',
+      desc: 'Reservas, promos, cortes y una marca con carácter masculino moderno.',
+      items: ['Logo con actitud', 'Flyers para cortes y combos', 'Landing para reservas por WhatsApp']
+    },
+    restaurante: {
+      mark: 'FOOD',
+      title: 'Restaurante local',
+      desc: 'Menú digital, promociones y presencia visual que abre el apetito.',
+      items: ['Menú PDF elegante', 'Stories de ofertas', 'Landing con ubicación y contacto']
+    },
+    taller: {
+      mark: 'TECH',
+      title: 'Taller técnico',
+      desc: 'Servicios mecánicos o electromecánicos presentados con orden y confianza.',
+      items: ['Catálogo de servicios', 'Web de confianza', 'Piezas para redes y Google']
+    },
+    salon: {
+      mark: 'GLAM',
+      title: 'Salón de belleza',
+      desc: 'Estética limpia, femenina/moderna y contenido reutilizable.',
+      items: ['Paleta visual suave', 'Plantillas editables', 'Promos para citas']
+    },
+    tienda: {
+      mark: 'DROP',
+      title: 'Tienda de ropa',
+      desc: 'Colecciones, drops, catálogo y comunicación rápida por chat.',
+      items: ['Catálogo por colección', 'Posts de lanzamiento', 'WhatsApp para pedidos']
+    }
+  };
+
+  const paintNiche = (key) => {
+    const data = nicheData[key];
+    if (!data) return;
+    $('#nicheMark').textContent = data.mark;
+    $('#nicheTitle').textContent = data.title;
+    $('#nicheDesc').textContent = data.desc;
+    $('#nicheList').innerHTML = data.items.map((item, index) => `
+      <div class="niche-row">
+        <span>${index + 1}</span>
+        <div>
+          <strong>${item}</strong>
+          <p>Elemento incluido dentro de un paquete visual para vender mejor.</p>
+        </div>
+      </div>
+    `).join('');
+  };
+
+  $$('.niche-tab').forEach((tab) => {
+    tab.addEventListener('click', () => {
+      $$('.niche-tab').forEach((item) => item.classList.remove('is-active'));
+      tab.classList.add('is-active');
+      paintNiche(tab.dataset.niche);
+    });
+  });
+
+  const buildQuoteText = () => {
+    if (!quoteForm) return '';
+    const data = Object.fromEntries(new FormData(quoteForm).entries());
+    return [
+      'Hola Trópix Studio, quiero cotizar un servicio digital.',
+      '',
+      `Nombre: ${data.nombre || 'No definido'}`,
+      `WhatsApp: ${data.telefono || 'No definido'}`,
+      `Negocio: ${data.negocio || 'No definido'}`,
+      `Tipo de negocio: ${data.tipo || 'No definido'}`,
+      `Servicio: ${data.servicio || 'No definido'}`,
+      `Presupuesto: ${data.presupuesto || 'No definido'}`,
+      `Colores: ${data.colores || 'No definido'}`,
+      `Fecha ideal: ${data.fecha || 'No definida'}`,
+      `Detalles: ${data.mensaje || 'Quiero orientación'}`
+    ].join('\n');
+  };
+
+  quoteForm?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const text = buildQuoteText();
+    const data = Object.fromEntries(new FormData(quoteForm).entries());
+    const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
+
+    localStorage.setItem('tropix_last_quote', JSON.stringify({
+      ...data,
+      createdAt: new Date().toISOString()
+    }));
+
+    quoteResult.classList.add('is-active');
+    quoteResult.innerHTML = `
+      <strong>Mensaje listo.</strong><br>
+      Se preparó tu cotización para WhatsApp.
+      <a href="${url}" target="_blank" rel="noopener">Abrir WhatsApp ahora</a>
+    `;
+
+    window.open(url, '_blank', 'noopener');
+  });
+
+  copyQuote?.addEventListener('click', async () => {
+    const text = buildQuoteText();
+    try {
+      await navigator.clipboard.writeText(text);
+      quoteResult.classList.add('is-active');
+      quoteResult.innerHTML = '<strong>Resumen copiado.</strong><br>Ya puedes pegarlo en WhatsApp o enviarlo manualmente.';
+    } catch (error) {
+      quoteResult.classList.add('is-active');
+      quoteResult.innerHTML = '<strong>No se pudo copiar automáticamente.</strong><br>Selecciona el texto del formulario y cópialo manualmente.';
+    }
+  });
+
+  if (cursorLight && matchMedia('(pointer:fine)').matches) {
+    addEventListener('pointermove', (event) => {
+      cursorLight.style.left = `${event.clientX}px`;
+      cursorLight.style.top = `${event.clientY}px`;
+    }, { passive: true });
+  }
+})();
+  </script>
+</body>
+</html>
